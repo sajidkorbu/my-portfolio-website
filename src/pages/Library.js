@@ -1,10 +1,10 @@
 // src/pages/Library.js
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Library.css';
 
-// Updated book data with your specified books
+// Book data remains the same as in your original file
 const bookData = [
-  {
+{
     id: 1,
     title: "shoe dog",
     author: "phil knight",
@@ -116,6 +116,7 @@ const bookData = [
     coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1347984664i/639864.jpg",
     recommendation: "yogananda's spiritual journey opened my mind to eastern philosophical traditions and meditation practices that have brought greater balance and clarity to my life and work."
   }
+
 ];
 
 const Library = () => {
@@ -134,7 +135,37 @@ const Library = () => {
     setSelectedBook(null);
   };
   
-  // Handle scroll interaction
+  // Handle tab changes with animation
+  const handleTabChange = (tab) => {
+    // First, make the current content fade out
+    const contentElement = document.querySelector('.tab-content.active');
+    if (contentElement) {
+      contentElement.classList.remove('active');
+    }
+    
+    // Set the new active tab after a short delay
+    setTimeout(() => {
+      setActiveTab(tab);
+      
+      // Make the new content fade in
+      setTimeout(() => {
+        const newContentElement = document.querySelector('.tab-content');
+        if (newContentElement) {
+          newContentElement.classList.add('active');
+        }
+      }, 50);
+    }, 300); // This delay should match the transition time in CSS
+  };
+  
+  // Initialize the active class on first render
+  useEffect(() => {
+    const contentElement = document.querySelector('.tab-content');
+    if (contentElement) {
+      contentElement.classList.add('active');
+    }
+  }, []);
+  
+  // Scroll handling functions remain the same
   const handleMouseDown = (e) => {
     setIsScrolling(true);
     setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
@@ -157,7 +188,6 @@ const Library = () => {
     setIsScrolling(false);
   };
   
-  // Scroll to a specific position with animation
   const scrollToPosition = (position) => {
     scrollContainerRef.current.scrollTo({
       left: position,
@@ -180,109 +210,101 @@ const Library = () => {
   return (
     <div className="library-container">
       <h1 className="library-title">library</h1>
+      
       <div className="library-tabs">
         <button 
           className={activeTab === 'books' ? 'active' : ''} 
-          onClick={() => setActiveTab('books')}
+          onClick={() => handleTabChange('books')}
         >
           books
         </button>
         <button 
           className={activeTab === 'extras' ? 'active' : ''} 
-          onClick={() => setActiveTab('extras')}
+          onClick={() => handleTabChange('extras')}
         >
           extra reading
         </button>
       </div>
       
-      {activeTab === 'books' && (
-        <>
-          <p className="library-intro">
-            books have been essential to my personal and professional growth. here's a curated collection of reads that 
-            have shaped my thinking on leadership, psychology, business, and life.
-          </p>
-          
-          <div className="horizontal-scroll-container">
-            <button 
-              className="scroll-button scroll-left" 
-              onClick={scrollLeft20Percent}
-              aria-label="Scroll left"
-            >
-              ‹
-            </button>
+      <div className={`tab-content ${activeTab === 'books' ? 'active' : ''}`}>
+        {activeTab === 'books' && (
+          <>
+            <p className="library-intro">
+              books have been essential to my personal and professional growth. here's a curated collection of reads that 
+              have shaped my thinking on leadership, psychology, business, and life.
+            </p>
             
-            <div 
-              className="books-row"
-              ref={scrollContainerRef}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseLeave}
-            >
-              {bookData.map((book) => (
-                <div 
-                  key={book.id} 
-                  className="book-item"
-                  onClick={() => handleBookClick(book)}
-                >
-                  <div className="book-cover-wrapper">
-                    <img 
-                      src={book.coverUrl} 
-                      alt={`${book.title} cover`} 
-                      className="book-cover" 
-                      loading="lazy"
-                    />
-                    <div className="book-reflection"></div>
+            <div className="horizontal-scroll-container">
+              <button 
+                className="scroll-button scroll-left" 
+                onClick={scrollLeft20Percent}
+                aria-label="Scroll left"
+              >
+                ‹
+              </button>
+              
+              <div 
+                className="books-row"
+                ref={scrollContainerRef}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
+              >
+                {bookData.map(book => (
+                  <div 
+                    key={book.id} 
+                    className="book-item"
+                    onClick={() => handleBookClick(book)}
+                  >
+                    <div className="book-cover">
+                      <img src={book.coverUrl} alt={`${book.title} by ${book.author}`} />
+                    </div>
+                    <div className="book-info">
+                      <h3>{book.title}</h3>
+                      <p>{book.author}</p>
+                    </div>
                   </div>
-                  <div className="book-info">
-                    <h3 className="book-title">{book.title}</h3>
-                    <p className="book-author">by {book.author}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              
+              <button 
+                className="scroll-button scroll-right" 
+                onClick={scrollRight20Percent}
+                aria-label="Scroll right"
+              >
+                ›
+              </button>
             </div>
-            
-            <button 
-              className="scroll-button scroll-right" 
-              onClick={scrollRight20Percent}
-              aria-label="Scroll right"
-            >
-              ›
-            </button>
+          </>
+        )}
+        
+        {activeTab === 'extras' && (
+          <div className="extras-container">
+            <p className="library-intro">
+              beyond books, these articles, essays, and resources have influenced my thinking and approach to business and life.
+            </p>
+            <div className="extras-grid">
+              {/* You can add your extra reading content here */}
+              <p className="placeholder">Extra reading content will be displayed here.</p>
+            </div>
           </div>
-          
-          <div className="scroll-instructions">
-            <p>click and drag to explore more books, or use the arrow buttons</p>
-          </div>
-        </>
-      )}
-      
-      {activeTab === 'extras' && (
-        <div className="extras-container">
-          <p className="library-intro">
-            beyond books, here are some essays, articles, and other pieces that have influenced my thinking.
-          </p>
-          <p className="coming-soon">coming soon...</p>
-        </div>
-      )}
+        )}
+      </div>
       
       {selectedBook && (
-        <div className="book-detail-overlay" onClick={closeDetail}>
-          <div className="book-detail" onClick={(e) => e.stopPropagation()}>
+        <div className="book-detail-overlay">
+          <div className="book-detail">
             <button className="close-button" onClick={closeDetail}>×</button>
             <div className="book-detail-content">
               <div className="book-detail-cover">
-                <img 
-                  src={selectedBook.coverUrl} 
-                  alt={`${selectedBook.title} cover`}
-                  className="book-detail-image" 
-                />
+                <img src={selectedBook.coverUrl} alt={`${selectedBook.title} by ${selectedBook.author}`} />
               </div>
               <div className="book-detail-info">
-                <h2 className="book-detail-title">{selectedBook.title}</h2>
-                <h3 className="book-detail-author">by {selectedBook.author}</h3>
+                <h2>{selectedBook.title}</h2>
+                <h3>by {selectedBook.author}</h3>
                 <div className="book-recommendation">
-                  <h4>why i recommend this book:</h4>
+                  <h4>why i recommend it:</h4>
                   <p>{selectedBook.recommendation}</p>
                 </div>
               </div>
