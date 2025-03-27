@@ -1,0 +1,148 @@
+/* src/pages/Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #87CEEB; /* Mario sky blue */
+  min-height: 100vh;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.profile-image-container {
+  margin-bottom: 1.5rem;
+}
+
+/* Added placeholder for profile image */
+.profile-image-placeholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid #E52521; /* Mario red */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #4166F5; /* Mario blue */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid #E52521; /* Mario red */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.intro-text {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .intro-text {
+    text-align: left;
+    margin-left: 2rem;
+    max-width: 60%;
+  }
+}
+
+.intro-text h1 {
+  font-size: 1.8rem;
+  color: #E52521; /* Mario red */
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 0px #000;
+}
+
+.intro-text h2 {
+  font-size: 1.2rem;
+  color: #4166F5; /* Mario blue */
+  margin-bottom: 1rem;
+}
+
+.summary {
+  font-size: 0.7rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info {
+  background-color: #FDCB3B; /* Mario coin yellow */
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+  font-size: 0.6rem;
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+  color: #E52521; /* Mario red */
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.navigation-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (min-width: 768px) {
+  .navigation-buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.nav-button {
+  background-color: #FDCB3B; /* Mario coin yellow */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button a {
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.6rem;
+  padding: 0.5rem;
+}
+
+.nav-button:hover {
+  background-color: #FFA500; /* Orange when hovering */
+}

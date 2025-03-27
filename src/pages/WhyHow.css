@@ -1,0 +1,135 @@
+/* src/pages/WhyHow.css */
+.whyhow-container {
+  padding: 2rem;
+  background-color: #87CEEB; /* Mario sky blue */
+  min-height: 100vh;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.page-title {
+  text-align: center;
+  color: #E52521; /* Mario red */
+  text-shadow: 2px 2px 0px #000;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .sections-container {
+    flex-direction: row;
+  }
+}
+
+.section {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.section h2 {
+  color: #4166F5; /* Mario blue */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Placeholder for section-icon */
+.section-icon-placeholder {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section p {
+  font-size: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.tech-stack h3 {
+  color: #E52521; /* Mario red */
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tech-stack ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.tech-stack li {
+  font-size: 0.6rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.tech-stack li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #FDCB3B; /* Mario yellow */
+}
+
+.cost-section h3 {
+  color: #E52521; /* Mario red */
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cost-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.cost-item p {
+  font-size: 0.6rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* Placeholder for coins icon */
+.coins-icon-placeholder {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .tech-stack li,
+  .section p,
+  .cost-item p {
+    font-size: 0.5rem;
+  }
+}

@@ -1,0 +1,303 @@
+/* src/pages/Profile.css */
+.profile-container {
+  padding: 2rem;
+  background-color: #8FE381; /* Mario background green */
+  min-height: 100vh;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.page-title {
+  text-align: center;
+  color: #E52521; /* Mario red */
+  text-shadow: 2px 2px 0px #000;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+/* Career Timeline Styling */
+.career-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.career-timeline::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #FDCB3B; /* Mario yellow */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.timeline-content {
+  position: relative;
+  width: 45%;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  left: 5%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  left: 50%;
+}
+
+.timeline-content h3 {
+  color: #E52521; /* Mario red */
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content h4 {
+  color: #4166F5; /* Mario blue */
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content .period {
+  color: #666;
+  font-size: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-content ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.timeline-content li {
+  font-size: 0.6rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.timeline-content li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #E52521; /* Mario red */
+}
+
+.connector {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Placeholder for mario-running image */
+.mario-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: #FDCB3B; /* Mario yellow */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #E52521; /* Mario red */
+}
+
+/* Education Section Styling */
+.education-section {
+  background-color: #FFFFFF;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.education-section h2 {
+  color: #E52521; /* Mario red */
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.education-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px dotted #FDCB3B; /* Mario yellow */
+}
+
+.education-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.education-item h3 {
+  color: #4166F5; /* Mario blue */
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-item h4 {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-item .period {
+  color: #666;
+  font-size: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-item p {
+  font-size: 0.6rem;
+}
+
+/* Skills Section Styling */
+.skills-section {
+  background-color: #FFFFFF;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skills-section h2 {
+  color: #E52521; /* Mario red */
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F5F5F5;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder for star icon */
+.star-icon-placeholder {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 0.5rem;
+  color: #FDCB3B; /* Mario yellow */
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-item p {
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+/* Interests Section Styling */
+.interests-section {
+  background-color: #FFFFFF;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.interests-section h2 {
+  color: #E52521; /* Mario red */
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.interests-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .interests-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.interest-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F5F5F5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder for interest icons */
+.interest-icon-placeholder {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.interest-item h3 {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: #4166F5; /* Mario blue */
+}
+
+.interest-item p {
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 767px) {
+  .career-timeline::before {
+    left: 31px;
+  }
+  
+  .timeline-content {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    left: 0;
+  }
+  
+  .connector {
+    left: 31px;
+    transform: none;
+  }
+}
