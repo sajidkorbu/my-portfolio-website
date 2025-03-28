@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-do
 import profileImage from './assets/profile-image.jpg'; // Make sure this path is correct
 import Library from './pages/Library'; // Import the new Library component
 import './App.css';
+import About from './pages/About';
 
 // Page components
 const Home = () => (
@@ -22,14 +23,17 @@ const Home = () => (
             <p>
               "i know something about many things but not everything about anything"
             </p>
+            <p>
+              location: copenhagen, denmark
+            </p>
+            <p>
+              email: <a href="mailto:sajidkorbu@gmail.com">sajidkorbu@gmail.com</a>
+            </p>
+            <p>
+              linkedin: <a href="https://linkedin.com/in/sajidkorbu" target="_blank" rel="noopener noreferrer">@sajidkorbu</a>
+            </p>
           </div>
         </div>
-      </div>
-      
-      <div className="contact-info">
-        <p><strong>location:</strong> copenhagen, denmark</p>
-        <p><strong>email:</strong> <a href="mailto:sajidkorbu@gmail.com">sajidkorbu@gmail.com</a></p>
-        <p><strong>linkedin:</strong> <a href="https://linkedin.com/in/sajidkorbu" target="_blank" rel="noopener noreferrer">@sajidkorbu</a></p>
       </div>
     </div>
   </div>
@@ -49,6 +53,9 @@ const WhyHow = () => (
         </p>
         <p>
           this website is my playground for learning and experimenting. it's where i showcase my small projects and document my journey. there might not be anything groundbreaking here, but why does that matter? it's about challenging myself and making it public.
+        </p>
+        <p>
+          if you happened to land here, i would love your feedback. message me on <a href="https://www.linkedin.com/in/sajidkorbu" target="_blank" rel="noopener noreferrer">linkedin</a> or <a href="mailto:sajidkorbu@gmail.com">email</a>.
         </p>
       </div>
       
@@ -71,73 +78,18 @@ const WhyHow = () => (
         
         <p>attempt 5: i went back to <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">youtube</a> to do some more research on how people are doing things. i could not find the answer i was looking for.. maybe because the right way was indeed the hard way and i wanted an easier solution. finally i thought maybe i can try <a href="https://cursor.sh" target="_blank" rel="noopener noreferrer">cursor</a> because i had heard so much about it. so i bought a base subscription to cursor and started there. i imported all local files that i created with <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">claude</a> into cursor and started working again. this time i did not move anything to <a href="https://github.com" target="_blank" rel="noopener noreferrer">github</a> or <a href="https://netlify.com" target="_blank" rel="noopener noreferrer">netlify</a>. i wanted to ensure that my output is as expected and tested everything in localhost setup. but the flow was perfect. i told cursor what i wanted to change and it did those changes and i could see in my local setup. i gave enormous feedback and it did its best. though this was not as easy as we see on youtube. i had to take baby steps and take probably 50+ screenshots to tell cursor exactly where i wanted those changes. i went page by page and line by line to provide feedback on changes expected. it took a few hours to make substantial progress. but what impressed me is that now the flow was beautiful. everything was in real time and without knowing any code all i had to do was explain in a prompt what i wanted and cursor tried to execute it. absolutely beautiful.</p>
       </div>
-
+      
       <div className="section">
         <h2>some learnings</h2>
-        <p>1. whatever you see on <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">youtube</a> about people building websites and projects in few minutes is not exactly the real story. you need to spend many hours to understand how these platforms operate to get your right flow and further you need to build an instinct for prompting. AI can do a lot of things but you need to steer the AI output through your prompts. this is way harder than it looks like and the only way to really learn is to practice a lot and also make something in public so people can give feedback.</p>
+        <p>1. most valuable thing is proof of work. do not consume any content from people giving fluff about AI and other new tech. there is no replacement for proof of work. ignore anyone giving fluff in fancy settings but hasn't done any hands-on work. curate your content with high signal and ignore low signal content.</p>
 
-        <p>2. you need to spend money. most useful tech in the world of AI comes at some cost. though it is not a lot of cost. i have thought about it this way - for me this is like MBA part 2. this is not spending but investing in my education and upskilling. so i literally keep aside a budget of 100$ each month, which seems too low if you compare it with some fancy degree or certification cost, and i spend that on tinkering with these ideas.</p>
+        <p>2. whatever you see on <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">youtube</a> about people building websites and projects in few minutes is not exactly the real story. you need to spend many hours to understand how these platforms operate to get your right flow and further you need to build an instinct for prompting. AI can do a lot of things but you need to steer the AI output through your prompts. this is way harder than it looks like and the only way to really learn is to practice a lot and also make something in public so people can give feedback.</p>
 
-        <p>3. be on <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>/twitter. do not waste time on <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">linkedin</a>. it is a slow moving platform with a lot of fluff. X is where things happen in real time and you can find the smartest people. forget what musk is doing because that will not help your personal life. if you want to grow, be on X and see what the smartest crowd is up to and you will know where to invest time and energy in.</p>
-      </div>
-    </div>
-  </div>
-);
+        <p>3. you need to spend money. most useful tech in the world of AI comes at some cost. though it is not a lot of cost. i have thought about it this way - for me this is like MBA part 2. this is not spending but investing in my education and upskilling. so i literally keep aside a budget of 100$ each month, which seems too low if you compare it with some fancy degree or certification cost, and i spend that on tinkering with these ideas.</p>
 
-const About = () => (
-  <div className="content-area">
-    <div className="content-inner">
-      <h1>about</h1>
-      
-      <div className="profile-section">
-        <h2>Professional Experience</h2>
-        <div className="job">
-          <h3>Client Partner, TCS Denmark</h3>
-          <p className="period">Jan 2021 - Present</p>
-          <ul>
-            <li>Responsible for a large public railway account in Denmark</li>
-            <li>Account size 150+ FTEs, EUR 14Mn+ annual revenue</li>
-            <li>CXO relationship management, consulting on growth and transformations</li>
-            <li>Led large transformation programs in Digital, Cloud, Security, and SAP</li>
-          </ul>
-        </div>
-        
-        <div className="job">
-          <h3>Client Partner, TCS Switzerland</h3>
-          <p className="period">Apr 2017 - Dec 2020</p>
-          <ul>
-            <li>Responsible for two accounts, a large ground handler and an airline caterer</li>
-            <li>Account size 150+ FTEs, EUR 12Mn+ annual revenue</li>
-            <li>Led large transformation programs in Infra, Workplace, Security and Digital</li>
-          </ul>
-        </div>
-        
-        <div className="job">
-          <h3>Engagement Manager, TCS Sweden</h3>
-          <p className="period">Sept 2014 - Apr 2017</p>
-          <ul>
-            <li>Account size 350+ FTEs, EUR 32Mn+ annual revenue</li>
-            <li>Led contract renewals for large programs worth over EUR 35Mn</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div className="profile-section">
-        <h2>Education</h2>
-        <div className="education">
-          <h3>MBA in Marketing and Strategy</h3>
-          <p>Great Lakes Institute of Management, 2010-2011</p>
-        </div>
-        <div className="education">
-          <h3>Bachelors in Electronics Engineering</h3>
-          <p>Walchand College of Engineering, 2001-2005</p>
-        </div>
-      </div>
-      
-      <div className="profile-section">
-        <h2>Skills & Interests</h2>
-        <p><strong>Skills:</strong> Business Communication, Creativity/Innovation, Analytical Thinking, People Management</p>
-        <p><strong>Interests:</strong> Reading (Tech trends, psychology), Running (training for Lidingolöppet 15K)</p>
+        <p>4. be on <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>/twitter. do not waste time on <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">linkedin</a>. it is a slow moving platform with a lot of fluff. X is where things happen in real time and you can find the smartest people. forget what musk is doing because that will not help your personal life. if you want to grow, be on X and see what the smartest crowd is up to and you will know where to invest time and energy in.</p>
+
+        <p>5. you cannot escape the hard work. take for example the library section. while the first build was superfast because i just told AI the list of books i wanted there and it created the whole bookshelf, i had to invest a few more hours in curating and refining. for each book, i have written my personal recommendation, here AI's role was to spell check my writing and nothing else. some books had wrong tags and i had to correct them book by book. most books could not get the thumbnails right so that too needed fixing one book at a time. and this experience goes for each section. while i did not spend time in coding and saved a few hundred hours there, i did spend many hours curating, refining, fixing minor details. and that is in general what AI will change about everything. AI will become a tool to curate, refine, fix things but it will still be a tool, a mighty one though and the best one yet in human hands (or brains).</p>
       </div>
     </div>
   </div>
@@ -210,7 +162,7 @@ function App() {
   		<Route path="/library" element={<Library />} />
 	</Routes>
         <div className="watermark">
-          thought by sajid, made by AI / march 2024
+          thought by sajid, made by AI / march 2025
         </div>
         </main>
       </div>

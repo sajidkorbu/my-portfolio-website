@@ -166,7 +166,7 @@ body {
 }
 
 .content-inner {
-  padding: 0 4rem;
+  padding: 0 2rem;
   position: relative;
 }
 
@@ -294,61 +294,91 @@ h2 {
 /* Profile Page Styling */
 .profile-section {
   margin-bottom: 3rem;
-  position: relative;
+  max-width: 800px;
 }
 
 .profile-section h2 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  margin-top: 2.5rem;
-  color: #4a4a4a;
-  font-weight: 500;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border-color);
-  display: inline-block;
-  font-family: var(--title-font);
-  font-weight: 300;
+  color: var(--text-color);
 }
 
-.job, .education {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-color);
+/* Job entries styling */
+.job {
+  margin-bottom: 2.5rem;
+  padding-left: 0;
+  border-left: none;
 }
 
-.job:last-child, .education:last-child {
-  border-bottom: none;
-}
-
-.job h3, .education h3 {
+.job h3 {
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #4a4a4a;
-  font-weight: 500;
+  margin-bottom: 0.3rem;
 }
 
 .period {
-  color: #777;
+  color: var(--secondary-text);
   font-size: 0.9rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
   font-style: italic;
 }
 
-ul {
+.job ul {
+  list-style: none;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(232, 243, 247, 0.5);
+}
+
+.job ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
   padding-left: 1.5rem;
-  margin-bottom: 1.2rem;
-  position: relative;
 }
 
-li {
-  margin-bottom: 0.8rem;
-  font-size: 0.95rem;
+.job ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
   color: var(--text-color);
-  position: relative;
 }
 
-li::marker {
-  color: #888;
+/* Skills list styling */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.skills-list li {
+  background: var(--content-bg);
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  border-left: 2px solid rgba(232, 243, 247, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.skills-list li:hover {
+  transform: translateX(5px);
+}
+
+/* Education styling */
+.education {
+  margin-bottom: 2rem;
+}
+
+.education h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.education p {
+  margin: 0.2rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(232, 243, 247, 0.5);
 }
 
 /* Why & How Page Styling */
@@ -543,6 +573,24 @@ li::marker {
   .profile-intro h1 {
     font-size: 1.8rem;
   }
+  
+  .profile-section {
+    margin-bottom: 2rem;
+  }
+  
+  .job {
+    padding-left: 0.8rem;
+  }
+  
+  .skills-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.8rem;
+  }
+  
+  .skills-list li {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
 }
 
 /* Update typography styles */
@@ -646,7 +694,7 @@ body {
 }
 
 .content-inner {
-  padding: 0 4rem; /* Keep consistent padding */
+  padding: 0 2rem; /* Reduce the padding from 4rem to 2rem */
 }
 
 /* Add or update these styles */
@@ -693,4 +741,230 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* This will push the watermark to the bottom */
+}
+
+/* Update the achievement styling */
+.achievement {
+  margin-bottom: 2.5rem;
+}
+
+.achievement h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+}
+
+.achievement .period {
+  color: var(--secondary-text);
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  font-style: italic;
+}
+
+.achievement p {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(232, 243, 247, 0.5);
+}
+
+/* Update the profile-section text alignment */
+.profile-section p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.7;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(232, 243, 247, 0.5);
+  max-width: 90ch; /* Limit line length for readability */
+}
+
+/* Add specific styling for professional summary */
+.profile-section.summary p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/* Update job descriptions to match the style */
+.job ul {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(232, 243, 247, 0.5);
+}
+
+.job ul li {
+  padding-left: 1.5rem;
+}
+
+/* Update achievement and education descriptions */
+.achievement p:not(.period),
+.education p:not(.period) {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(232, 243, 247, 0.5);
+}
+
+/* Update link styling to match the why-how section */
+.profile-section a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.profile-section a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--text-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.profile-section a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Same styling for job section links */
+.job a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.job a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--text-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.job a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Experiments Grid Layout */
+.experiments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Experiment Card Styling */
+.experiment-card {
+  background: var(--content-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.experiment-card:hover {
+  transform: translateY(-5px);
+}
+
+.experiment-content {
+  padding: 1.5rem;
+}
+
+.experiment-content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.experiment-description {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Tech Tags Styling */
+.experiment-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  background: var(--bg-accent);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: var(--text-color);
+}
+
+/* Links Styling */
+.experiment-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.experiment-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.experiment-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--text-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.experiment-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .experiments-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Update link styling globally to match why-how section */
+.content-inner a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.content-inner a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--text-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.content-inner a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

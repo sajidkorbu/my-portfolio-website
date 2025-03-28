@@ -6,17 +6,17 @@ import './Library.css';
 const bookData = [
 {
     id: 1,
-    title: "shoe dog",
-    author: "phil knight",
+    title: "Shoe Dog",
+    author: "Phil Knight",
     coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1457284880i/27220736.jpg",
-    recommendation: "an inspiring memoir about perseverance and passion. knight's journey building nike taught me that success often comes through countless small steps and persistent vision rather than overnight success."
+    recommendation: "all big companies start somewhere small, and this book is about that start. no great feat is achieved by a lone human - it takes a team. in nike's story, amazing people came together - some brought the name, some the logo, and most of it was luck driven by a passionate CEO."
   },
   {
     id: 2,
     title: "siddhartha",
     author: "hermann hesse",
     coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1428715580i/52036.jpg",
-    recommendation: "this beautiful philosophical novel resonated with my own journey of self-discovery. hesse's portrayal of siddhartha's path reminds me that wisdom comes from direct experience and that each person must find their own way."
+    recommendation: "a book i will read many times to understand it deeply, a book i will grow old with, and hope one day i will find what siddhartha was looking for.."
   },
   {
     id: 3,
@@ -35,9 +35,9 @@ const bookData = [
   {
     id: 5,
     title: "the miracle makers",
-    author: "p.k. mohapatra & harish sachdev",
+    author: "bharat sundaresan",
     coverUrl: "https://m.media-amazon.com/images/I/51tgel-49VL._SY264_BO1,204,203,200_QL40_FMwebp_.jpg",
-    recommendation: "this account of business transformation offers practical insights on leadership and change management that I've applied throughout my career in digital transformation."
+    recommendation: "a thrilling account of india's greatest cricket victory. this book takes you behind the scenes of the historic gabba test win, showing how a depleted team achieved the impossible through sheer resilience and belief."
   },
   {
     id: 6,
