@@ -1,7 +1,7 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import profileImage from './assets/profile-image.jpg'; // Make sure this path is correct
+import profileImage from './assets/profile-image-2.jpeg'; // Make sure this path is correct
 import Library from './pages/Library'; // Import the new Library component
 import './App.css';
 import About from './pages/About';
@@ -12,7 +12,7 @@ const Home = () => (
     <div className="content-inner">
       <div className="profile-header">
         <div className="profile-image-container">
-          <img src={profileImage} alt="Sajid Korbu" className="profile-image" />
+          <img src={profileImage} alt="Sajid Korbu - Anime style portrait" className="profile-image" />
         </div>
         <div className="profile-intro">
           <h1>sajid korbu</h1>
@@ -95,25 +95,21 @@ const WhyHow = () => (
   </div>
 );
 
-// Sample data for projects
+// Update projectsData with all your projects
 const projectsData = [
   {
     id: 1,
-    title: "AI Image Generator",
-    description: "A machine learning model that generates images based on text descriptions.",
-    tech: "Python, TensorFlow, React"
+    title: "visualize your life",
+    description: "a simple tool to help you reflect on life during stressful times. see your life in weeks, and gain perspective.",
+    tech: "javascript, netlify",
+    url: "https://visualizelife.netlify.app"
   },
   {
     id: 2,
-    title: "Sentiment Analysis Tool",
-    description: "Analyzes customer feedback to determine sentiment and key insights.",
-    tech: "Python, NLTK, Flask"
-  },
-  {
-    id: 3,
-    title: "Predictive Maintenance Model",
-    description: "Predicts equipment failures before they occur to reduce downtime.",
-    tech: "Python, Scikit-learn, Pandas"
+    title: "linkedin & x post analyzer",
+    description: "this is not what i expected but taught me to work with API keys. a chrome extension that analyzes posts using AI-powered readability detection.",
+    tech: "javascript, chrome extension, AI",
+    url: "https://github.com/sajidkorbu/LinkedinXChromeExtenstion.git"
   }
 ];
 
@@ -121,17 +117,26 @@ const TinyExperiments = () => (
   <div className="content-area">
     <div className="content-inner">
       <h1>tiny experiments</h1>
-      <p>Here are some of my AI experiments and projects. Each represents a different area of exploration in machine learning and artificial intelligence.</p>
       
-      <div className="projects-grid">
+      <p style={{ marginBottom: '3rem' }}>
+        here are some of my AI experiments and projects. each represents an attempt at trying something fun, some work some don't. but i learn.
+      </p>
+      
+      <div className="experiments-grid">
         {projectsData.map(project => (
-          <div key={project.id} className="project-card">
-            <div className="project-content">
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.description}</p>
-              <p className="project-tech"><strong>Tech:</strong> {project.tech}</p>
+          <a 
+            key={project.id} 
+            href={project.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="experiment-card"
+          >
+            <div className="experiment-content">
+              <h2>{project.title}</h2>
+              <p className="experiment-description">{project.description}</p>
+              <p className="tech">tech: {project.tech}</p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>

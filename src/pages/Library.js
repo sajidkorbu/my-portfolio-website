@@ -383,6 +383,48 @@ const Library = () => {
                   </div>
                 </div>
               </a>
+
+              <a href="https://modelthinkers.com/mental-model/surface-area-of-luck" target="_blank" rel="noopener noreferrer" className="reading-card">
+                <div className="reading-content">
+                  <h3>surface area of luck</h3>
+                  <p className="reading-author">by modelthinkers</p>
+                  <p className="reading-excerpt">
+                    "luck = (passionate) doing x (effective) telling — a framework for increasing your chances of success."
+                  </p>
+                  <div className="reading-metadata">
+                    <span className="reading-type">guide</span>
+                    <span className="reading-time">15 min read</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="https://www.benkuhn.net/outliers/" target="_blank" rel="noopener noreferrer" className="reading-card">
+                <div className="reading-content">
+                  <h3>searching for outliers</h3>
+                  <p className="reading-author">by ben kuhn</p>
+                  <p className="reading-excerpt">
+                    "most important things in life are heavy-tailed - the key is knowing how to search for the outliers."
+                  </p>
+                  <div className="reading-metadata">
+                    <span className="reading-type">essay</span>
+                    <span className="reading-time">20 min read</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="https://substack.com/@gurwinder/p-153989710" target="_blank" rel="noopener noreferrer" className="reading-card">
+                <div className="reading-content">
+                  <h3>the curse of ambition</h3>
+                  <p className="reading-author">by gurwinder</p>
+                  <p className="reading-excerpt">
+                    "the curse of ambition is that each achievement only sets the baseline for the next, in an endless cycle of dissatisfaction."
+                  </p>
+                  <div className="reading-metadata">
+                    <span className="reading-type">essay</span>
+                    <span className="reading-time">12 min read</span>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         )}
