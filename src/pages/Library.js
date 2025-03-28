@@ -115,8 +115,21 @@ const bookData = [
     author: "paramahansa yogananda",
     coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1347984664i/639864.jpg",
     recommendation: "yogananda's spiritual journey opened my mind to eastern philosophical traditions and meditation practices that have brought greater balance and clarity to my life and work."
+  },
+  {
+    id: 17,
+    title: "duniyadari",
+    author: "suhas shirvalkar",
+    coverUrl: "https://m.media-amazon.com/images/I/51YD5AXWT8L._SX334_BO1,204,203,200_.jpg",
+    recommendation: "a masterful exploration of college life and friendships in pune. shirvalkar's storytelling captures the essence of youth, ambition, and the complexities of relationships in a changing india."
+  },
+  {
+    id: 18,
+    title: "ahe manohar tari",
+    author: "sunita deshpande",
+    coverUrl: "https://m.media-amazon.com/images/I/41JQH65KJQL._SX334_BO1,204,203,200_.jpg",
+    recommendation: "a beautiful memoir that paints an intimate portrait of life, literature, and relationships. deshpande's narrative weaves personal experiences with broader cultural insights, offering a unique perspective on marathi literary life."
   }
-
 ];
 
 const Library = () => {
@@ -222,17 +235,22 @@ const Library = () => {
           className={activeTab === 'extras' ? 'active' : ''} 
           onClick={() => handleTabChange('extras')}
         >
-          extra reading
+          more
         </button>
       </div>
       
       <div className={`tab-content ${activeTab === 'books' ? 'active' : ''}`}>
         {activeTab === 'books' && (
           <>
-            <p className="library-intro">
-              books have been essential to my personal and professional growth. here's a curated collection of reads that 
-              have shaped my thinking on leadership, psychology, business, and life.
-            </p>
+            <div className="library-intro">
+              <h2 className="intro-heading">stories that shaped me</h2>
+              <p>
+                books have been my silent mentors—guiding me through challenges, expanding my horizons, and challenging my perspectives. each book on this shelf is more than just pages and words; they're snapshots of insights that have transformed how i approach leadership, understand people, and navigate the complex world of business and life.
+              </p>
+              <p className="library-subtext">
+                i buy more books than i can read—not out of excess, but out of possibility. each unread book represents a future conversation, an unexplored idea, a perspective waiting to be discovered. in this journey of becoming a better reader, i've learned that the pursuit of knowledge is as valuable as the knowledge itself.
+              </p>
+            </div>
             
             <div className="horizontal-scroll-container">
               <button 
@@ -258,7 +276,11 @@ const Library = () => {
                     onClick={() => handleBookClick(book)}
                   >
                     <div className="book-cover">
-                      <img src={book.coverUrl} alt={`${book.title} by ${book.author}`} />
+                      <img 
+                        src={book.coverUrl} 
+                        alt={`${book.title} cover`}
+                        loading="lazy"
+                      />
                     </div>
                     <div className="book-info">
                       <h3>{book.title}</h3>
@@ -275,18 +297,92 @@ const Library = () => {
               >
                 ›
               </button>
+              
+              <div className="scroll-message">
+                click to read my thoughts, scroll to see more
+              </div>
             </div>
           </>
         )}
         
         {activeTab === 'extras' && (
           <div className="extras-container">
-            <p className="library-intro">
-              beyond books, these articles, essays, and resources have influenced my thinking and approach to business and life.
-            </p>
-            <div className="extras-grid">
-              {/* You can add your extra reading content here */}
-              <p className="placeholder">Extra reading content will be displayed here.</p>
+            <div className="library-intro">
+              <h2 className="intro-heading">beyond books</h2>
+              <p>
+                a collection of essays, articles, and threads that have shaped my thinking and perspective.
+              </p>
+            </div>
+            <div className="reading-grid">
+              <a href="https://www.highagency.com" target="_blank" rel="noopener noreferrer" className="reading-card">
+                <div className="reading-content">
+                  <h3>high agency</h3>
+                  <p className="reading-author">by george mack</p>
+                  <p className="reading-excerpt">
+                    "the ability to think clearly, bias to action, and disagreeability—rarely found together, yet essential for solving impossible problems."
+                  </p>
+                  <div className="reading-metadata">
+                    <span className="reading-type">essay</span>
+                    <span className="reading-time">30 min read</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="https://www.mashcap.com/post/think-wait-fast" target="_blank" rel="noopener noreferrer" className="reading-card">
+                <div className="reading-content">
+                  <h3>i can think. i can wait. i can fast.</h3>
+                  <p className="reading-author">by kunal mashruwala</p>
+                  <p className="reading-excerpt">
+                    "three virtues from siddhartha that are as relevant today as they were 2500 years ago."
+                  </p>
+                  <div className="reading-metadata">
+                    <span className="reading-type">essay</span>
+                    <span className="reading-time">3 min read</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="https://theamericanscholar.org/solitude-and-leadership/" target="_blank" rel="noopener noreferrer" className="reading-card">
+                <div className="reading-content">
+                  <h3>solitude and leadership</h3>
+                  <p className="reading-author">by william deresiewicz</p>
+                  <p className="reading-excerpt">
+                    "true leadership requires the courage to think for yourself—a skill best developed in solitude."
+                  </p>
+                  <div className="reading-metadata">
+                    <span className="reading-type">essay</span>
+                    <span className="reading-time">25 min read</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="https://fs.blog/mental-models/" target="_blank" rel="noopener noreferrer" className="reading-card">
+                <div className="reading-content">
+                  <h3>mental models</h3>
+                  <p className="reading-author">by shane parrish</p>
+                  <p className="reading-excerpt">
+                    "a latticework of mental models is the best way to make better decisions and understand reality."
+                  </p>
+                  <div className="reading-metadata">
+                    <span className="reading-type">guide</span>
+                    <span className="reading-time">20 min read</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_13" target="_blank" rel="noopener noreferrer" className="reading-card">
+                <div className="reading-content">
+                  <h3>on groundless fears</h3>
+                  <p className="reading-author">by seneca</p>
+                  <p className="reading-excerpt">
+                    "we suffer more in imagination than in reality—a timeless reminder to focus on what's real."
+                  </p>
+                  <div className="reading-metadata">
+                    <span className="reading-type">letter</span>
+                    <span className="reading-time">10 min read</span>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         )}

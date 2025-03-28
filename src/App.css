@@ -1,6 +1,31 @@
 /* src/App.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+/* Add to the top of your App.css file */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&family=Work+Sans:wght@300&display=swap');
 
+/* Option 1: Playfair Display for headings and Source Sans Pro for body */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Source+Sans+Pro:wght@300;400&display=swap');
+
+/* Option 2: Lora for headings and Inter for body */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Inter:wght@300;400&display=swap');
+
+/* Option 3: Crimson Text for headings and Work Sans for body */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Work+Sans:wght@300;400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Quattrocento+Sans:wght@400&display=swap');
+
+/* Remove all previous font imports and replace with just this one */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+/* Remove ALL existing @import statements and replace with just this */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap');
+
+/* Remove ALL existing font imports and replace with these three fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Karla:wght@300;400&family=Space+Grotesk:wght@300;400&display=swap');
+
+/* Remove ALL existing font imports and replace with just this */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500&display=swap');
+
+/* Update root variables - remove font variables except title */
 :root {
   --text-color: #4a4a4a;
   --light-cream: #f7f3e9;
@@ -13,6 +38,36 @@
   --sidebar-text: #555;
   --active-nav: #e8f3f7;
   --content-bg: #f9f7f2;
+  
+  /* Just one font variable for titles */
+  --title-font: 'Syne', sans-serif;
+}
+
+/* Base typography */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+
+.profile-intro h1 {
+  font-weight: 400;
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+}
+
+.nav-item {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
 }
 
 * {
@@ -70,9 +125,12 @@ body {
   color: var(--sidebar-text);
   text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
   border-radius: 0;
+  font-family: var(--heading-font);
+  font-weight: 300;
+  letter-spacing: 0.02em;
 }
 
 .nav-item:hover {
@@ -108,47 +166,50 @@ body {
 }
 
 .content-inner {
-  padding: 2.5rem;
+  padding: 0 4rem;
   position: relative;
 }
 
 /* Profile Header with Image */
 .profile-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 2.5rem;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .profile-image-container {
-  margin-right: 2.5rem;
-  position: relative;
+  width: 280px;
+  height: 320px; /* Taller than width for a portrait rectangle */
+  margin-bottom: 2rem;
+  border-radius: 24px; /* Rounded corners but not circular */
+  overflow: hidden;
+  background-color: var(--pale-sand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .profile-image {
-  width: 200px;
-  height: 200px;
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s ease;
-}
-
-.profile-image:hover {
-  transform: scale(1.02);
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keep contain to prevent distortion */
+  display: block;
 }
 
 .profile-intro {
-  flex: 1;
+  width: 100%;
+  max-width: 600px; /* Limit text width for better readability */
 }
 
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  color: #4a4a4a;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
+.profile-intro h1 {
+  margin: 1rem 0;
+  font-size: 2.4rem;
+  font-family: var(--title-font);
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 h2 {
@@ -161,7 +222,7 @@ h2 {
 
 .intro {
   margin-bottom: 2.5rem;
-  padding: 0 0 0 1rem;
+  padding: 0;
   position: relative;
 }
 
@@ -169,20 +230,11 @@ h2 {
   margin-bottom: 1.2rem;
   font-size: 1rem;
   color: var(--text-color);
-  line-height: 1.7;
+  line-height: 1.8;
   position: relative;
   z-index: 2;
-}
-
-.intro::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background-color: var(--light-blue);
-  opacity: 0.8;
+  font-family: var(--body-font);
+  font-weight: 400;
 }
 
 /* Contact Info Section */
@@ -192,6 +244,8 @@ h2 {
   border-radius: 8px;
   margin-top: 2.5rem;
   border: 1px solid var(--border-color);
+  font-family: var(--body-font);
+  font-weight: 300;
 }
 
 .contact-info p {
@@ -204,6 +258,8 @@ h2 {
   min-width: 100px;
   display: inline-block;
   color: #5a5a5a;
+  font-family: var(--title-font);
+  font-weight: 300;
 }
 
 .contact-info a {
@@ -250,6 +306,8 @@ h2 {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
   display: inline-block;
+  font-family: var(--title-font);
+  font-weight: 300;
 }
 
 .job, .education {
@@ -301,21 +359,18 @@ li::marker {
 
 .section h2 {
   font-size: 1.5rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   color: #4a4a4a;
   font-weight: 500;
   display: inline-block;
   position: relative;
+  font-family: var(--title-font);
+  font-weight: 300;
 }
 
-.section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background-color: #d3d3d3;
+.section h2::after,
+.section h2::before {
+  display: none;
 }
 
 .section p {
@@ -428,10 +483,6 @@ li::marker {
     margin-right: 0;
     margin-bottom: 2rem;
   }
-  
-  .intro::before {
-    display: none;
-  }
 }
 
 @media (max-width: 768px) {
@@ -483,4 +534,163 @@ li::marker {
   .wave-decoration {
     height: 80px;
   }
+  
+  .profile-image-container {
+    width: 240px;
+    height: 280px;
+  }
+  
+  .profile-intro h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Update typography styles */
+h1, h2, h3 {
+  font-family: var(--title-font);
+  font-weight: 400;
+}
+
+body, p, .nav-item {
+  font-family: var(--body-font);
+  font-weight: 300;
+}
+
+/* Style for special sections like the library intro */
+.library-intro p {
+  font-family: var(--accent-font);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.library-subtext {
+  font-family: var(--accent-font);
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Update specific components */
+.profile-intro h1 {
+  font-family: var(--title-font);
+  font-weight: 400;
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+}
+
+.nav-item {
+  font-family: var(--body-font);
+  font-weight: 300;
+}
+
+/* Only update the key titles */
+.profile-intro h1,
+.section h2,
+.profile-section h2,
+.library-intro h2 {
+  font-family: var(--title-font);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Let the rest of the text use system fonts */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Update the page titles styling */
+.content-area h1,
+.section h1,
+.library-title,
+.content-inner h1,
+.page-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  padding: 2rem 0;
+}
+
+/* Add or update these styles */
+.library-title,
+.experiments-title,
+.about-title {
+  font-size: 3.2rem;
+  padding: 4rem 0 2rem;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* If you have a container class for each section, ensure they have consistent padding */
+.library-container,
+.experiments-container,
+.about-container {
+  padding: 2rem;
+}
+
+/* Update the library title specifically */
+.library-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 0;
+  padding: 2rem 4rem; /* Adjust padding to match other titles */
+  letter-spacing: -0.02em;
+}
+
+/* Remove or update these if they exist */
+.library-container {
+  padding-top: 0; /* Remove extra top padding */
+}
+
+.content-inner {
+  padding: 0 4rem; /* Keep consistent padding */
+}
+
+/* Add or update these styles */
+.section a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.section a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--text-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.section a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Update the watermark style to be relative instead of fixed */
+.watermark {
+  position: relative;
+  margin-top: auto;    /* Changed from fixed value to auto */
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+  color: #666;
+  opacity: 0.7;
+  text-align: center;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Add this new style for the experiments page container */
+.experiments-container {
+  min-height: calc(100vh - 100px); /* Subtract some space for padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This will push the watermark to the bottom */
 }
