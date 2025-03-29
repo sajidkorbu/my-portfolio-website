@@ -110,6 +110,13 @@ const projectsData = [
     description: "this is not what i expected but taught me to work with API keys. a chrome extension that analyzes posts using AI-powered readability detection.",
     tech: "javascript, chrome extension, AI",
     url: "https://github.com/sajidkorbu/LinkedinXChromeExtenstion.git"
+  },
+  {
+    id: 3,
+    title: "90s 2d game",
+    description: "my attempt at building a simple 2d game. reminds me of the games we used to play in the 90s.",
+    tech: "javascript, netlify",
+    url: "https://90s2dgame.netlify.app/"
   }
 ];
 

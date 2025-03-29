@@ -895,10 +895,12 @@ body {
 /* Update Experiments Grid Layout */
 .experiments-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   margin-top: 2rem;
-  max-width: 800px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Update Experiment Card Styling */
@@ -909,12 +911,9 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transform: translateY(-4px);
   text-decoration: none;
   color: inherit;
-  max-width: 280px;
-  margin: 0; /* Remove auto margins to align left */
-  margin-bottom: 0.5rem;
+  width: 100%;
 }
 
 .experiment-content {
