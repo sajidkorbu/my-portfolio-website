@@ -13,9 +13,11 @@ const Home = () => {
         </div>
 
         <div className="section">
-          <p>location: copenhagen, denmark</p>
-          <p>email: sajidkorbu@gmail.com</p>
-          <p>linkedin: <a href="https://www.linkedin.com/in/sajidkorbu" target="_blank" rel="noopener noreferrer">@sajidkorbu</a></p>
+          <p>
+            i am based in pune, india. you can reach me at{" "}
+            <a href="mailto:sajidkorbu@gmail.com">sajidkorbu@gmail.com</a> or connect with me on{" "}
+            <a href="https://www.linkedin.com/in/sajidkorbu" target="_blank" rel="noopener noreferrer">linkedin</a>
+          </p>
         </div>
       </div>
     </div>

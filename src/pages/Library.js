@@ -50,98 +50,98 @@ const bookData = [
     title: "the miracle makers",
     author: "bharat sundaresan",
     coverUrl: miracleMakersImage,
-    recommendation: "a thrilling account of india's greatest cricket victory. this book takes you behind the scenes of the historic gabba test win, showing how a depleted team achieved the impossible through sheer resilience and belief."
+    recommendation: "well, i love cricket and great cricket stories. this one is one hell of a story. and bharath never disappoints."
   },
   {
     id: 6,
     title: "steve jobs",
     author: "walter isaacson",
     coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1511288482i/11084145.jpg",
-    recommendation: "beyond the myth of jobs, isaacson reveals the complex personality behind apple's success. i was inspired by jobs' unwavering commitment to design excellence and his ability to envision products people didn't yet know they needed."
+    recommendation: "well, all great companies have great stories. i particularly love the starting years. and crazy steve stories. and you learn that there were many others who made apple possible."
   },
   {
     id: 7,
     title: "the inner game of tennis",
     author: "w. timothy gallwey",
     coverUrl: innerGameImage,
-    recommendation: "though ostensibly about tennis, this book transformed my approach to learning and performance. gallwey's insights about quieting self-criticism to access natural abilities apply beautifully to professional challenges."
+    recommendation: "i was recommended this book. we live unexamined lives. observing the inner side of us can be life changing. would love to discuss this book if anyone is interested."
   },
   {
     id: 8,
     title: "elon musk",
     author: "ashlee vance",
     coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1518291452i/25541028.jpg",
-    recommendation: "vance's portrait of musk showcases the power of thinking at extreme scale. while i don't agree with all of musk's methods, his relentless drive to transform multiple industries simultaneously is undeniably inspiring."
+    recommendation: "whatever you think about elon, nothign can take away his sheer grit in making things happen. great stories about the starting years. to thier credit, no company had it easy."
   },
   {
     id: 9,
     title: "simply fly",
     author: "captain g.r. gopinath",
     coverUrl: simplyFlyImage,
-    recommendation: "captain gopinath's journey creating india's first low-cost airline speaks to the entrepreneurial spirit. his ability to overcome regulatory and market challenges while democratizing air travel contains lessons for any innovator."
+    recommendation: "one of my favourite books. captain gopi is one person i would love to meet. not movie can do justice to his courageous and gravity defying journey. still feel he should not have sold to kingfisher."
   },
   {
     id: 10,
     title: "rearview mirror",
     author: "raghu",
     coverUrl: rearviewImage,
-    recommendation: "a reflective memoir that offers honest perspectives on career transitions and personal growth. raghu's storytelling helped me appreciate the value of every experience in shaping who we become."
+    recommendation: "another favourite. we all wanted to be a roadie. loved the initial struggle and the becoming of roadies"
   },
   {
     id: 11,
     title: "the nvidia way",
     author: "william pounds",
     coverUrl: nvidiaImage,
-    recommendation: "this book offers valuable insights into how nvidia transformed itself repeatedly to stay at the forefront of technological innovation, demonstrating the importance of adaptability and vision."
+    recommendation: "read this recently. i find this theme repeating, where what we see as overnight success is often decades of hard work without any end in sight."
   },
   {
     id: 12,
     title: "reframe your brain",
     author: "scott adams",
     coverUrl: reframeImage,
-    recommendation: "adams' practical approach to reframing problems and managing energy rather than time has influenced how i structure my days and approach challenges."
+    recommendation: "i have an ongoing struggle with staying in the present and fear. in my journey to find a solution, i have been around. landed on this book and found it very helpful."
   },
   {
     id: 13,
     title: "the dhandho investor",
     author: "mohnish pabrai",
     coverUrl: dhandoImage,
-    recommendation: "pabrai's value-investing philosophy emphasizing low-risk, high-return opportunities has informed not just my financial decisions but also my approach to business investments and career choices."
+    recommendation: "i admire pabrai for his life journey and dakshana foundation. this book is an interesting read on basic virtues of grit and hard work"
   },
   {
     id: 14,
     title: "grinding it out",
     author: "ray kroc",
     coverUrl: grindingImage,
-    recommendation: "kroc's journey building mcdonald's is a masterclass in standardization and scaling. his persistence and attention to operational details offers lessons for anyone building systems that can replicate success."
+    recommendation: "two lessons. success is indeed about, well as the title says, grinding it out. and you can start on your dream at any age, often life starts after 40."
   },
   {
     id: 15,
     title: "the tao of charlie munger",
     author: "david clark",
     coverUrl: taoImage,
-    recommendation: "munger's mental models and incisive thinking have dramatically improved my decision-making process. his emphasis on multidisciplinary learning continues to shape how i approach complex problems."
+    recommendation: "i found munger late in life, but glad i did. i hope i can understand him and use his frameworks in my life as much as i can"
   },
   {
     id: 16,
     title: "autobiography of a yogi",
     author: "paramahansa yogananda",
     coverUrl: autobiographyImage,
-    recommendation: "yogananda's spiritual journey opened my mind to eastern philosophical traditions and meditation practices that have brought greater balance and clarity to my life and work."
+    recommendation: "we find some books, and some books find us. this book found me."
   },
   {
     id: 17,
     title: "duniyadari",
     author: "suhas shirvalkar",
     coverUrl: duniyadariImage,
-    recommendation: "a masterful exploration of college life and friendships in pune. shirvalkar's storytelling captures the essence of youth, ambition, and the complexities of relationships in a changing india."
+    recommendation: "well, i love nostalgia. nothing hyper activates my nostalgia like this book. it is a dreamland i get transported to. absolutely love it."
   },
   {
     id: 18,
     title: "ahe manohar tari",
     author: "sunita deshpande",
     coverUrl: aheImage,
-    recommendation: "a beautiful memoir that paints an intimate portrait of life, literature, and relationships. deshpande's narrative weaves personal experiences with broader cultural insights, offering a unique perspective on marathi literary life."
+    recommendation: "i have earmarked some books for my old age. all of pu la's books will be there. but this book is a crazy insight into his personality, which sometimes makes me question whether you should ever really get to know some people."
   }
 ];
 

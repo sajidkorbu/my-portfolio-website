@@ -30,7 +30,7 @@ const Home = () => (
               email: <a href="mailto:sajidkorbu@gmail.com">sajidkorbu@gmail.com</a>
             </p>
             <p>
-              linkedin: <a href="https://linkedin.com/in/sajidkorbu" target="_blank" rel="noopener noreferrer">@sajidkorbu</a>
+              linkedin: <a href="https://www.linkedin.com/in/sajidkorbu" target="_blank" rel="noopener noreferrer">@sajidkorbu</a>
             </p>
           </div>
         </div>
