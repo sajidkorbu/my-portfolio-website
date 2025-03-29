@@ -168,6 +168,7 @@ body {
 .content-inner {
   padding: 0 2rem;
   position: relative;
+  width: 100%; /* Ensure container takes full width */
 }
 
 /* Profile Header with Image */
@@ -479,14 +480,28 @@ h2 {
 .book-cover {
   height: 240px;
   width: 160px;
-  object-fit: cover;
+  background-color: var(--pale-sand); /* Add background color while loading */
+  position: relative;
+  overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
-  transition: transform 0.4s ease;
 }
 
-.book:hover .book-cover {
-  transform: rotate(-3deg);
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Remove any opacity transitions that might hide the images */
+.book-cover img[loading] {
+  opacity: 1;
+}
+
+.book-cover img.loaded {
+  opacity: 1;
 }
 
 .book-title {
@@ -857,7 +872,7 @@ body {
 .experiments-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 2rem;
+  gap: 1rem;
   margin-top: 2rem;
   max-width: 800px;
 }
@@ -875,6 +890,7 @@ body {
   color: inherit;
   max-width: 280px;
   margin: 0; /* Remove auto margins to align left */
+  margin-bottom: 0.5rem;
 }
 
 .experiment-content {
@@ -913,11 +929,19 @@ body {
 }
 
 /* Update intro text styling */
-.content-inner > p {
+.content-inner > div > p {
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--text-color);
-  max-width: 800px;
+  width: 100%;
+}
+
+.content-inner > div > p:first-child {
+  margin-bottom: 0.5rem; /* Add space between the two lines */
+}
+
+.content-inner > div > p:last-child {
+  margin-bottom: 3rem; /* Space before the cards */
 }
 
 /* Update experiment card styling */
@@ -1008,4 +1032,35 @@ body {
   max-width: 800px;
   margin: 0 auto 2rem;
   text-align: center;
+}
+
+/* Update book detail styling */
+.book-detail-info {
+  flex: 1;
+  padding: 2rem;
+}
+
+.book-recommendation {
+  margin-top: 2rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--text-color);
+  padding-left: 1rem;
+  border-left: 2px solid rgba(232, 243, 247, 0.5);
+}
+
+.book-recommendation p {
+  font-size: 1rem;
+}
+
+.book-detail-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--title-font);
+}
+
+.book-detail-info h3 {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1.5rem;
 }

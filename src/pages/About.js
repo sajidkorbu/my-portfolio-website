@@ -82,6 +82,11 @@ const About = () => {
           </div>
         </div>
 
+        <div className="section">
+          <h2>investor</h2>
+          <p>lately, my interest in startups and VC led me to amazing conversations with many founders, mostly in the indian startup space. i ended up angel investing in one amazing startup called <a href="https://www.socly.io" target="_blank" rel="noopener noreferrer">socly.io</a>. i hope to continue on this journey.</p>
+        </div>
+
         <div className="profile-section">
           <h2>education</h2>
           <div className="education">

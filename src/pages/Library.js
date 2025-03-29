@@ -1,6 +1,19 @@
 // src/pages/Library.js
 import React, { useState, useRef, useEffect } from 'react';
 import './Library.css';
+import miracleMakersImage from '../assets/the-miracle-makers.jpg';
+import innerGameImage from '../assets/the-inner-game-of-tennins.jpg';
+import autobiographyImage from '../assets/Autobiography-of-a-Yogi.jpg';
+import aheImage from '../assets/ahe-manohar-tari.jpg';
+import duniyadariImage from '../assets/duniyadari.jpg';
+import grindingImage from '../assets/grinding-it-out.jpg';
+import nvidiaImage from '../assets/nvidia-way.jpg';
+import rearviewImage from '../assets/rearview-mirror.jpg';
+import reframeImage from '../assets/reframe-your-brain.jpg';
+import senecaImage from '../assets/seneca.jpg';
+import simplyFlyImage from '../assets/simply-fly.jpg';
+import taoImage from '../assets/tao-of-charlie-munger.jpg';
+import dhandoImage from '../assets/dhando-investor.jpg';
 
 // Book data remains the same as in your original file
 const bookData = [
@@ -22,21 +35,21 @@ const bookData = [
     id: 3,
     title: "influence",
     author: "robert cialdini",
-    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1391032531i/28815.jpg",
-    recommendation: "cialdini's principles of persuasion have been invaluable in my business relationships. understanding these psychological triggers has made me both more effective in communication and more aware of when these techniques are being used."
+    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1391026083i/28815.jpg",
+    recommendation: "i realized late in life the power heuristics have over us, and you can understand that through this book. must read to understand how people operate."
   },
   {
     id: 4,
     title: "letter from a stoic (letter 13)",
     author: "seneca",
-    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1421619054i/97411.jpg",
-    recommendation: "seneca's timeless wisdom on anxiety and resilience continues to guide me during challenging times. his advice to prepare for difficulties while enjoying the present moment has been a cornerstone of my personal philosophy."
+    coverUrl: senecaImage,
+    recommendation: "fear has gripped me all my life. i find strength in this letter. i often read it and hope i don't have to read it again."
   },
   {
     id: 5,
     title: "the miracle makers",
     author: "bharat sundaresan",
-    coverUrl: "https://m.media-amazon.com/images/I/51tgel-49VL._SY264_BO1,204,203,200_QL40_FMwebp_.jpg",
+    coverUrl: miracleMakersImage,
     recommendation: "a thrilling account of india's greatest cricket victory. this book takes you behind the scenes of the historic gabba test win, showing how a depleted team achieved the impossible through sheer resilience and belief."
   },
   {
@@ -50,7 +63,7 @@ const bookData = [
     id: 7,
     title: "the inner game of tennis",
     author: "w. timothy gallwey",
-    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1403202090i/905.jpg",
+    coverUrl: innerGameImage,
     recommendation: "though ostensibly about tennis, this book transformed my approach to learning and performance. gallwey's insights about quieting self-criticism to access natural abilities apply beautifully to professional challenges."
   },
   {
@@ -64,70 +77,70 @@ const bookData = [
     id: 9,
     title: "simply fly",
     author: "captain g.r. gopinath",
-    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1328868445i/9566355.jpg",
+    coverUrl: simplyFlyImage,
     recommendation: "captain gopinath's journey creating india's first low-cost airline speaks to the entrepreneurial spirit. his ability to overcome regulatory and market challenges while democratizing air travel contains lessons for any innovator."
   },
   {
     id: 10,
     title: "rearview mirror",
     author: "raghu",
-    coverUrl: "https://m.media-amazon.com/images/I/41Cw8yVEXmL._SY264_BO1,204,203,200_QL40_FMwebp_.jpg",
+    coverUrl: rearviewImage,
     recommendation: "a reflective memoir that offers honest perspectives on career transitions and personal growth. raghu's storytelling helped me appreciate the value of every experience in shaping who we become."
   },
   {
     id: 11,
     title: "the nvidia way",
     author: "william pounds",
-    coverUrl: "https://m.media-amazon.com/images/I/51oeS7maP4L._SY264_BO1,204,203,200_QL40_FMwebp_.jpg",
+    coverUrl: nvidiaImage,
     recommendation: "this book offers valuable insights into how nvidia transformed itself repeatedly to stay at the forefront of technological innovation, demonstrating the importance of adaptability and vision."
   },
   {
     id: 12,
     title: "reframe your brain",
     author: "scott adams",
-    coverUrl: "https://m.media-amazon.com/images/I/51Q8LAVA7AL._SY264_BO1,204,203,200_QL40_FMwebp_.jpg",
+    coverUrl: reframeImage,
     recommendation: "adams' practical approach to reframing problems and managing energy rather than time has influenced how i structure my days and approach challenges."
   },
   {
     id: 13,
     title: "the dhandho investor",
     author: "mohnish pabrai",
-    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320433767i/1263081.jpg",
+    coverUrl: dhandoImage,
     recommendation: "pabrai's value-investing philosophy emphasizing low-risk, high-return opportunities has informed not just my financial decisions but also my approach to business investments and career choices."
   },
   {
     id: 14,
     title: "grinding it out",
     author: "ray kroc",
-    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1457593572i/201026.jpg",
+    coverUrl: grindingImage,
     recommendation: "kroc's journey building mcdonald's is a masterclass in standardization and scaling. his persistence and attention to operational details offers lessons for anyone building systems that can replicate success."
   },
   {
     id: 15,
     title: "the tao of charlie munger",
     author: "david clark",
-    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1477907770i/29939363.jpg",
+    coverUrl: taoImage,
     recommendation: "munger's mental models and incisive thinking have dramatically improved my decision-making process. his emphasis on multidisciplinary learning continues to shape how i approach complex problems."
   },
   {
     id: 16,
     title: "autobiography of a yogi",
     author: "paramahansa yogananda",
-    coverUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1347984664i/639864.jpg",
+    coverUrl: autobiographyImage,
     recommendation: "yogananda's spiritual journey opened my mind to eastern philosophical traditions and meditation practices that have brought greater balance and clarity to my life and work."
   },
   {
     id: 17,
     title: "duniyadari",
     author: "suhas shirvalkar",
-    coverUrl: "https://m.media-amazon.com/images/I/51YD5AXWT8L._SX334_BO1,204,203,200_.jpg",
+    coverUrl: duniyadariImage,
     recommendation: "a masterful exploration of college life and friendships in pune. shirvalkar's storytelling captures the essence of youth, ambition, and the complexities of relationships in a changing india."
   },
   {
     id: 18,
     title: "ahe manohar tari",
     author: "sunita deshpande",
-    coverUrl: "https://m.media-amazon.com/images/I/41JQH65KJQL._SX334_BO1,204,203,200_.jpg",
+    coverUrl: aheImage,
     recommendation: "a beautiful memoir that paints an intimate portrait of life, literature, and relationships. deshpande's narrative weaves personal experiences with broader cultural insights, offering a unique perspective on marathi literary life."
   }
 ];
@@ -280,6 +293,11 @@ const Library = () => {
                         src={book.coverUrl} 
                         alt={`${book.title} cover`}
                         loading="lazy"
+                        onError={(e) => {
+                          console.log(`Failed to load image for: ${book.title}`); // For debugging
+                          e.target.onerror = null; // Prevent infinite loop
+                          e.target.src = 'https://via.placeholder.com/160x240?text=Book+Cover'; // Fallback image
+                        }}
                       />
                     </div>
                     <div className="book-info">

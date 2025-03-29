@@ -117,10 +117,10 @@ const TinyExperiments = () => (
   <div className="content-area">
     <div className="content-inner">
       <h1>tiny experiments</h1>
-      
-      <p style={{ marginBottom: '3rem' }}>
-        here are some of my AI experiments and projects. each represents an attempt at trying something fun, some work some don't. but i learn.
-      </p>
+      <div>
+        <p>here are some of my AI experiments and projects. each represents an attempt at trying something fun, some work some don't.</p>
+        <p>but i learn.</p>
+      </div>
       
       <div className="experiments-grid">
         {projectsData.map(project => (
