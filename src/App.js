@@ -117,6 +117,20 @@ const projectsData = [
     description: "my attempt at building a simple 2d game. reminds me of the games we used to play in the 90s.",
     tech: "javascript, netlify",
     url: "https://90s2dgame.netlify.app/"
+  },
+  {
+    id: 4,
+    title: "the art of prompt",
+    description: "exploring the craft of prompt engineering and AI interaction. a deep dive into the techniques and strategies for effective AI communication.",
+    tech: "AI, prompt engineering, replit",
+    url: "https://theartofprompt.replit.app/"
+  },
+  {
+    id: 5,
+    title: "unagi - friends universe",
+    description: "complete timeline of FRIENDS characters' life events with interactive filters, statistics, and behind-the-scenes trivia. could this BE any more nostalgic?",
+    tech: "javascript, github pages, data visualization",
+    url: "https://sajidkorbu.github.io/Unagi/"
   }
 ];
 
