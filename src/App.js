@@ -131,6 +131,13 @@ const projectsData = [
     description: "complete timeline of FRIENDS characters' life events with interactive filters, statistics, and behind-the-scenes trivia. could this BE any more nostalgic?",
     tech: "javascript, github pages, data visualization",
     url: "https://sajidkorbu.github.io/Unagi/"
+  },
+  {
+    id: 6,
+    title: "learn rag",
+    description: "exploring retrieval-augmented generation through a hands-on playground. upload documents, ask questions, and see how AI combines search with generation to provide accurate answers.",
+    tech: "langchain, openai, supabase, lovable",
+    url: "https://learnrag.netlify.app/"
   }
 ];
 
