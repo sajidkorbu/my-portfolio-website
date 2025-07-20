@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import profileImage from './assets/profile-image-2.jpeg'; // Make sure this path is correct
 import Library from './pages/Library'; // Import the new Library component
+import Now from './pages/Now'; // Import the Now component
 import './App.css';
 import About from './pages/About';
 
@@ -323,6 +324,7 @@ function App() {
         <div className="wave-decoration"></div>
         <nav className="sidebar">
   <div className="nav-links">
+    <NavLink to="/now" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>now</NavLink>
     <NavLink to="/home" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>home</NavLink>
     <NavLink to="/" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"} end>why and how</NavLink>
     <NavLink to="/about" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>about</NavLink>
@@ -338,6 +340,7 @@ function App() {
   		<Route path="/about" element={<About />} />
   		<Route path="/tiny-experiments" element={<TinyExperiments />} />
   		<Route path="/library" element={<Library />} />
+  		<Route path="/now" element={<Now />} />
 	</Routes>
         <div className="watermark">
           thought by sajid, made by AI / march 2025

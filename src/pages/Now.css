@@ -1,0 +1,135 @@
+.now-header {
+  margin-bottom: 2rem;
+}
+
+.now-header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color, #333);
+}
+
+.last-updated {
+  color: #666;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.now-content {
+  max-width: 700px;
+}
+
+.now-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.now-section:last-child {
+  border-bottom: none;
+}
+
+.now-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color, #333);
+  font-weight: 600;
+}
+
+.now-section p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.now-section p:last-child {
+  margin-bottom: 0;
+}
+
+.now-section a {
+  color: var(--accent-color, #007acc);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+.now-section a:hover {
+  border-bottom-color: var(--accent-color, #007acc);
+}
+
+.listening-subsection {
+  margin-bottom: 1.5rem;
+}
+
+.listening-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.listening-subsection h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #666;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.now-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.now-section li {
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.now-section li:before {
+  content: "•";
+  color: var(--accent-color, #007acc);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.now-section li:last-child {
+  margin-bottom: 0;
+}
+
+.now-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #eee;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.now-footer p {
+  margin-bottom: 0.5rem;
+}
+
+.now-footer a {
+  color: var(--accent-color, #007acc);
+  text-decoration: none;
+}
+
+.now-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .now-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .now-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+  
+  .now-section h2 {
+    font-size: 1.2rem;
+  }
+}
