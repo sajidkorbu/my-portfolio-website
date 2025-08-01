@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Growth Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Compound Growth Calculator</h1>
+        <div class="layout">
+            <div class="left-panel">
+                <div class="form">
+                    <div class="input-group">
+                        <label for="initial-amount">Initial Amount ($):</label>
+                        <input type="number" id="initial-amount" placeholder="e.g., 50000" min="0" step="1000">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="growth-rate">Annual Growth Rate (%):</label>
+                        <input type="number" id="growth-rate" placeholder="e.g., 8" min="0" max="100" step="0.1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="years">Number of Years:</label>
+                        <input type="number" id="years" placeholder="e.g., 5" min="1" max="50" step="1">
+                    </div>
+                </div>
+
+                <div class="example-buttons">
+                    <button class="example-btn" data-amount="50000" data-rate="8" data-years="5">Salary Example</button>
+                    <button class="example-btn" data-amount="10000" data-rate="7" data-years="20">Investment Example</button>
+                    <button class="example-btn" data-amount="1000" data-rate="12" data-years="10">Savings Example</button>
+                </div>
+
+                <div class="results" id="results" style="display: none;">
+                    <h3>Growth Summary</h3>
+                    <div class="result-item">
+                        <span class="result-label">Initial Amount:</span>
+                        <span class="result-value" id="initial-display">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Final Amount:</span>
+                        <span class="result-value" id="final-amount">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Growth:</span>
+                        <span class="result-value" id="total-growth">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Growth Multiple:</span>
+                        <span class="result-value" id="growth-multiple">0x</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="chart-container" id="chart-container" style="display: none;">
+                    <canvas id="growth-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

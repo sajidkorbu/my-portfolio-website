@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>💱 Currency Exchange Visualizer</h1>
+            <p class="subtitle">Real-time currency exchange rates with interactive charts</p>
+        </header>
+        
+        <div class="main-content">
+            <!-- Controls Panel -->
+            <div class="controls-panel">
+                <div class="control-group">
+                    <label for="baseCurrency">Base Currency</label>
+                    <select id="baseCurrency">
+                        <option value="EUR" selected>🇪🇺 EUR - Euro</option>
+                        <option value="USD">🇺🇸 USD - US Dollar</option>
+                        <option value="GBP">🇬🇧 GBP - British Pound</option>
+                        <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                        <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+                        <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                        <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                        <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+                        <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                        <option value="DKK">🇩🇰 DKK - Danish Krone</option>
+                        <option value="SEK">🇸🇪 SEK - Swedish Krona</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" value="100" min="0.01" step="10">
+                </div>
+                
+                <div class="control-group">
+                    <label>Chart Type</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="chartType" value="bar" checked>
+                            <span>📊 Bar Chart</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="chartType" value="radial">
+                            <span>🎯 Radial Chart</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="chartType" value="table">
+                            <span>📋 Table View</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="refresh-btn" onclick="refreshRates()">🔄 Refresh Rates</button>
+                
+                <div class="status" id="status"></div>
+            </div>
+            
+            <!-- Visualization Panel -->
+            <div class="viz-panel">
+                <div id="chartContainer" class="chart-container">
+                    <!-- Charts will be rendered here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Converter -->
+        <div class="converter-section">
+            <h3>🧮 Quick Converter</h3>
+            <div class="converter-controls">
+                <div class="converter-input">
+                    <input type="number" id="convertAmount" value="1" min="0.01" step="0.01">
+                    <span id="fromCurrency">EUR</span>
+                </div>
+                <div class="converter-arrow">→</div>
+                <div class="converter-input">
+                    <input type="number" id="convertResult" readonly>
+                    <select id="toCurrency">
+                        <option value="USD">🇺🇸 USD</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Currency data
+        const currencyNames = {
+            'EUR': 'Euro', 'USD': 'US Dollar', 'GBP': 'British Pound', 'JPY': 'Japanese Yen',
+            'CHF': 'Swiss Franc', 'CAD': 'Canadian Dollar', 'AUD': 'Australian Dollar',
+            'CNY': 'Chinese Yuan', 'INR': 'Indian Rupee', 'DKK': 'Danish Krone',
+            'SEK': 'Swedish Krona', 'NOK': 'Norwegian Krone', 'AED': 'UAE Dirham'
+        };
+
+        const currencyFlags = {
+            'EUR': '🇪🇺', 'USD': '🇺🇸', 'GBP': '🇬🇧', 'JPY': '🇯🇵', 'CHF': '🇨🇭',
+            'CAD': '🇨🇦', 'AUD': '🇦🇺', 'CNY': '🇨🇳', 'INR': '🇮🇳', 'DKK': '🇩🇰',
+            'SEK': '🇸🇪', 'NOK': '🇳🇴', 'AED': '🇦🇪'
+        };
+
+        const topCurrencies = ['USD', 'GBP', 'JPY', 'CHF', 'CAD', 'AUD', 'CNY', 'INR', 'DKK', 'SEK'];
+        
+        let currentRates = null;
+        let currentBaseCurrency = 'EUR';
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            fetchExchangeRates();
+        });
+
+        function setupEventListeners() {
+            document.getElementById('baseCurrency').addEventListener('change', function() {
+                currentBaseCurrency = this.value;
+                document.getElementById('fromCurrency').textContent = this.value;
+                fetchExchangeRates();
+            });
+
+            document.getElementById('amount').addEventListener('input', updateVisualization);
+            
+            document.querySelectorAll('input[name="chartType"]').forEach(radio => {
+                radio.addEventListener('change', updateVisualization);
+            });
+
+            document.getElementById('convertAmount').addEventListener('input', updateConverter);
+            document.getElementById('toCurrency').addEventListener('change', updateConverter);
+        }
+
+        async function fetchExchangeRates() {
+            showStatus('🌐 Fetching exchange rates...', 'loading');
+            
+            try {
+                const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${currentBaseCurrency}`);
+                if (!response.ok) throw new Error('Failed to fetch rates');
+                
+                const data = await response.json();
+                currentRates = data;
+                
+                populateToCurrencies();
+                updateVisualization();
+                updateConverter();
+                showStatus(`📅 Last updated: ${data.date}`, 'success');
+                
+            } catch (error) {
+                showStatus('❌ Failed to fetch rates. Please try again.', 'error');
+                console.error('Error:', error);
+            }
+        }
+
+        function updateVisualization() {
+            if (!currentRates) return;
+            
+            const chartType = document.querySelector('input[name="chartType"]:checked').value;
+            const amount = parseFloat(document.getElementById('amount').value) || 100;
+            
+            const currencies = getTopCurrencies();
+            
+            if (chartType === 'bar') {
+                createBarChart(currencies, amount);
+            } else if (chartType === 'radial') {
+                createRadialChart(currencies, amount);
+            } else if (chartType === 'table') {
+                createTable(currencies, amount);
+            }
+        }
+
+        function getTopCurrencies() {
+            if (!currentRates) return [];
+            
+            return topCurrencies
+                .filter(curr => curr !== currentBaseCurrency && currentRates.rates[curr])
+                .map(curr => ({
+                    code: curr,
+                    rate: currentRates.rates[curr],
+                    flag: currencyFlags[curr] || '',
+                    name: currencyNames[curr] || curr
+                }))
+                .sort((a, b) => a.rate - b.rate);
+        }
+
+        function createBarChart(currencies, amount) {
+            const data = currencies.map(curr => ({
+                x: `${curr.flag} ${curr.code}`,
+                y: curr.rate * amount
+            }));
+
+            const trace = {
+                type: 'bar',
+                x: data.map(d => d.x),
+                y: data.map(d => d.y),
+                marker: {
+                    color: '#667eea',
+                    opacity: 0.8
+                },
+                hovertemplate: '<b>%{x}</b><br>%{y:,.2f}<extra></extra>'
+            };
+
+            const layout = {
+                title: {
+                    text: `${amount.toLocaleString()} ${currentBaseCurrency} in Other Currencies`,
+                    font: { size: 16, family: 'Syne, sans-serif' }
+                },
+                xaxis: { title: 'Currency' },
+                yaxis: { title: 'Amount' },
+                template: 'plotly_white',
+                margin: { t: 50, b: 50, l: 50, r: 20 },
+                height: 350
+            };
+
+            Plotly.newPlot('chartContainer', [trace], layout, {
+                responsive: true,
+                displayModeBar: false
+            });
+        }
+
+        function createRadialChart(currencies, amount) {
+            const data = currencies.map(curr => ({
+                theta: `${curr.flag} ${curr.code}`,
+                r: curr.rate * amount
+            }));
+
+            const trace = {
+                type: 'scatterpolar',
+                r: data.map(d => d.r),
+                theta: data.map(d => d.theta),
+                mode: 'markers+lines',
+                marker: {
+                    size: 12,
+                    color: '#667eea'
+                },
+                line: { color: '#667eea', width: 2 },
+                fill: 'toself',
+                fillcolor: 'rgba(102, 126, 234, 0.1)',
+                hovertemplate: '<b>%{theta}</b><br>%{r:,.2f}<extra></extra>'
+            };
+
+            const layout = {
+                title: {
+                    text: `${amount.toLocaleString()} ${currentBaseCurrency} - Radial View`,
+                    font: { size: 16, family: 'Syne, sans-serif' }
+                },
+                polar: {
+                    radialaxis: {
+                        visible: true,
+                        range: [0, Math.max(...data.map(d => d.r)) * 1.1]
+                    }
+                },
+                template: 'plotly_white',
+                margin: { t: 50, b: 20, l: 20, r: 20 },
+                height: 350
+            };
+
+            Plotly.newPlot('chartContainer', [trace], layout, {
+                responsive: true,
+                displayModeBar: false
+            });
+        }
+
+        function createTable(currencies, amount) {
+            let html = `
+                <div class="table-header">
+                    <h3>${amount.toLocaleString()} ${currentBaseCurrency} Conversion Table</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table class="currency-table">
+                        <thead>
+                            <tr>
+                                <th>Currency</th>
+                                <th>Rate</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            currencies.forEach(curr => {
+                html += `
+                    <tr>
+                        <td>${curr.flag} ${curr.code}</td>
+                        <td>${curr.rate.toFixed(4)}</td>
+                        <td>${(curr.rate * amount).toLocaleString()}</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table></div>';
+            document.getElementById('chartContainer').innerHTML = html;
+        }
+
+        function populateToCurrencies() {
+            const select = document.getElementById('toCurrency');
+            select.innerHTML = '';
+            
+            topCurrencies.forEach(curr => {
+                if (curr !== currentBaseCurrency && currentRates.rates[curr]) {
+                    const option = document.createElement('option');
+                    option.value = curr;
+                    option.textContent = `${currencyFlags[curr]} ${curr}`;
+                    select.appendChild(option);
+                }
+            });
+        }
+
+        function updateConverter() {
+            const amount = parseFloat(document.getElementById('convertAmount').value) || 1;
+            const toCurrency = document.getElementById('toCurrency').value;
+            
+            if (currentRates && currentRates.rates[toCurrency]) {
+                const result = amount * currentRates.rates[toCurrency];
+                document.getElementById('convertResult').value = result.toFixed(2);
+            }
+        }
+
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${type}`;
+        }
+
+        function refreshRates() {
+            fetchExchangeRates();
+        }
+    </script>
+</body>
+</html>

@@ -245,41 +245,62 @@ const WhyHow = () => (
 const projectsData = [
   {
     id: 1,
+    title: "compound interest calculator",
+    description: "explore the power of compound interest with this interactive calculator. input your principal, interest rate, and time to see how your money grows.",
+    tech: "html, css, javascript",
+    url: "/compoundinterest"
+  },
+  {
+    id: 2,
+    title: "principles webpage",
+    description: "a collection of timeless principles and insights for better living. wisdom distilled into actionable thoughts.",
+    tech: "html, css, javascript",
+    url: "/principles"
+  },
+  {
+    id: 3,
+    title: "currency exchange visualizer",
+    description: "visualize currency exchange rates and trends. built to understand how different currencies perform against each other.",
+    tech: "python, flask",
+    url: "/currency"
+  },
+  {
+    id: 4,
     title: "learn rag",
     description: "exploring retrieval-augmented generation through a hands-on playground. upload documents, ask questions, and see how AI combines search with generation to provide accurate answers.",
     tech: "langchain, openai, supabase, lovable",
     url: "https://learnrag.netlify.app/"
   },
   {
-    id: 2,
+    id: 5,
     title: "the art of prompt",
     description: "exploring the craft of prompt engineering and AI interaction. a deep dive into the techniques and strategies for effective AI communication.",
     tech: "AI, prompt engineering, replit",
     url: "https://theartofprompt.replit.app/"
   },
   {
-    id: 3,
+    id: 6,
     title: "visualize your life",
     description: "a simple tool to help you reflect on life during stressful times. see your life in weeks, and gain perspective.",
     tech: "javascript, netlify",
     url: "https://visualizelife.netlify.app"
   },
   {
-    id: 4,
+    id: 7,
     title: "unagi - friends universe",
     description: "complete timeline of FRIENDS characters' life events with interactive filters, statistics, and behind-the-scenes trivia. could this BE any more nostalgic?",
     tech: "javascript, github pages, data visualization",
     url: "https://sajidkorbu.github.io/Unagi/"
   },
   {
-    id: 5,
+    id: 8,
     title: "90s 2d game",
     description: "my attempt at building a simple 2d game. reminds me of the games we used to play in the 90s.",
     tech: "javascript, netlify",
     url: "https://90s2dgame.netlify.app/"
   },
   {
-    id: 6,
+    id: 9,
     title: "linkedin & x post analyzer",
     description: "this is not what i expected but taught me to work with API keys. a chrome extension that analyzes posts using AI-powered readability detection.",
     tech: "javascript, chrome extension, AI",
@@ -301,8 +322,8 @@ const TinyExperiments = () => (
           <a 
             key={project.id} 
             href={project.url} 
-            target="_blank" 
-            rel="noopener noreferrer"
+            target={project.url.startsWith('http') ? "_blank" : "_self"}
+            rel={project.url.startsWith('http') ? "noopener noreferrer" : undefined}
             className="experiment-card"
           >
             <div className="experiment-content">

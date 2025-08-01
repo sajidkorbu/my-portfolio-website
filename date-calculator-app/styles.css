@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.current-date {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.calendar-container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.year-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.year-header h2 {
+    font-size: 2rem;
+    color: #667eea;
+    font-weight: 400;
+}
+
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.month {
+    background: #f8f9ff;
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.month:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.1);
+}
+
+.month-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.month-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #667eea;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+}
+
+.day-header {
+    text-align: center;
+    padding: 8px 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #666;
+    background: #e8ecff;
+    border-radius: 5px;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.day:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.1);
+}
+
+.day.empty {
+    cursor: default;
+    color: #ccc;
+}
+
+.day.empty:hover {
+    background: transparent;
+    color: #ccc;
+    transform: none;
+}
+
+.day.today {
+    background: #ff6b6b;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.day.today:hover {
+    background: #ff5252;
+    transform: scale(1.1);
+}
+
+.day.past {
+    color: #999;
+    background: #f0f0f0;
+}
+
+.day.past:hover {
+    background: #e0e0e0;
+    color: #666;
+}
+
+.day.future {
+    color: #333;
+    background: white;
+    border: 1px solid #e0e0e0;
+}
+
+.calculation-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 500px;
+    width: auto;
+    max-width: 90vw;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.calculation-panel.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0 15px 0;
+    border-bottom: 2px solid #f0f0f0;
+    cursor: grab;
+    user-select: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, transparent 30%, rgba(102, 126, 234, 0.1) 50%, transparent 70%);
+}
+
+.panel-header:hover {
+    background: linear-gradient(90deg, transparent 30%, rgba(102, 126, 234, 0.15) 50%, transparent 70%);
+}
+
+.panel-header:active {
+    cursor: grabbing;
+}
+
+.panel-header h3 {
+    color: #667eea;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.selected-date {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.calculations {
+    display: grid;
+    gap: 15px;
+}
+
+.calc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9ff;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    white-space: nowrap;
+    min-width: fit-content;
+}
+
+.calc-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.calc-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.tooltip {
+    font-size: 0.75rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #888;
+    margin-left: 8px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .months-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .month {
+        padding: 15px;
+    }
+    
+    .calculation-panel {
+        padding: 20px;
+        width: 95%;
+    }
+}
