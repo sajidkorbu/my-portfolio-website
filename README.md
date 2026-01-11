@@ -1,3 +1,10 @@
+# Sajid's Portfolio Website
+
+## TODO
+- [ ] Delete the `master` branch once confirmed everything works on `main`: `git push origin --delete master`
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
