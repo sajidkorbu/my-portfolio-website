@@ -1,6 +1,7 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 import profileImage from './assets/profile-image-2.jpeg'; // Make sure this path is correct
 import Library from './pages/Library'; // Import the new Library component
 import Now from './pages/Now'; // Import the Now component
@@ -341,6 +342,7 @@ const TinyExperiments = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app-container">
         <div className="wave-decoration"></div>
         <nav className="sidebar">
