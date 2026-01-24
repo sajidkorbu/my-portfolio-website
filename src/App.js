@@ -1,11 +1,22 @@
 // src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import profileImage from './assets/profile-image-2.jpeg'; // Make sure this path is correct
 import Library from './pages/Library'; // Import the new Library component
 import Now from './pages/Now'; // Import the Now component
 import './App.css';
 import About from './pages/About';
+
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 // Page components
 const Home = () => (
@@ -341,6 +352,7 @@ const TinyExperiments = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app-container">
         <div className="wave-decoration"></div>
         <nav className="sidebar">
