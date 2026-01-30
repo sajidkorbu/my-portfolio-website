@@ -14,3 +14,11 @@
 - Updated sidebar hover/active colors to align with the washi theme palette.
 - Library: removed the container box so the page floats on the background; applied washi cards to the "more" tab items.
 - Shortened the active underline under the Library tabs so the "more" line is tighter to the text.
+- Replaced washi paper cards with a glass-style transparent card treatment across pages and in the Library "more" cards.
+- Tuned the glass effect to match the Home photo box (lighter transparency, no blur).
+- Increased transparency of glass cards across pages and Library "more" cards.
+- Matched card styling exactly to the Home photo container (transparent background + same shadow).
+- Kept the ink-wash background at center 85% but restored it to fixed (no scroll movement).
+- Updated Tiny Experiments cards to match the transparent Home photo box styling.
+- Added a subtle border to Tiny Experiments cards for visibility.
+- Matched Tiny Experiments cards to the global card style (transparent background, no border, same shadow).

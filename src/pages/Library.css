@@ -434,35 +434,10 @@
 }
 
 .app-container.washi-theme .reading-card {
-  background-color: var(--color-washi-cream, #f8f6f2);
-  background-image: url('../assets/textures/paper-texture-real.png');
-  background-repeat: repeat;
-  border: 1px solid var(--color-border, #d1d7e0);
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(30, 40, 60, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-.app-container.washi-theme .reading-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 18px;
-  background-color: var(--color-washi-cream, #f8f6f2);
-  background-image: url('../assets/textures/paper-texture-real.png');
-  background-repeat: repeat;
-  -webkit-mask-image: url('../assets/textures/torn-paper-edge.png');
-  mask-image: url('../assets/textures/torn-paper-edge.png');
-  -webkit-mask-position: bottom;
-  mask-position: bottom;
-  -webkit-mask-size: 100% 18px;
-  mask-size: 100% 18px;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  pointer-events: none;
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(30, 40, 60, 0.12);
 }
 
 @media (min-width: 768px) {

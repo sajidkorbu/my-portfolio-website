@@ -2029,6 +2029,7 @@ body {
   display: none;
 }
 
+/* Glass theme - replaces washi paper on cards/blocks */
 .app-container.washi-theme .why-card,
 .app-container.washi-theme .tech-item,
 .app-container.washi-theme .hero-section,
@@ -2041,84 +2042,27 @@ body {
 .app-container.washi-theme .education-card,
 .app-container.washi-theme .learning-item,
 .app-container.washi-theme .now-section,
-.app-container.washi-theme .previous-update {
-  background-color: var(--color-washi-cream, #f8f6f2);
-  background-image: url(./assets/textures/paper-texture-real.png);
-  background-repeat: repeat;
-  border: 1px solid var(--color-border, #d1d7e0);
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(30, 40, 60, 0.08);
+.app-container.washi-theme .previous-update,
+.app-container.washi-theme .skills-section {
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(30, 40, 60, 0.12);
   position: relative;
   overflow: hidden;
-}
-
-.app-container.washi-theme .why-card::after,
-.app-container.washi-theme .tech-item::after,
-.app-container.washi-theme .hero-section::after,
-.app-container.washi-theme .timeline-content::after,
-.app-container.washi-theme .learning-card::after,
-.app-container.washi-theme .summary-hero::after,
-.app-container.washi-theme .career-content::after,
-.app-container.washi-theme .recognition-card::after,
-.app-container.washi-theme .investor-highlight::after,
-.app-container.washi-theme .education-card::after,
-.app-container.washi-theme .learning-item::after,
-.app-container.washi-theme .now-section::after,
-.app-container.washi-theme .previous-update::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 18px;
-  background-color: var(--color-washi-cream, #f8f6f2);
-  background-image: url(./assets/textures/paper-texture-real.png);
-  background-repeat: repeat;
-  -webkit-mask-image: url(./assets/textures/torn-paper-edge.png);
-  mask-image: url(./assets/textures/torn-paper-edge.png);
-  -webkit-mask-position: bottom;
-  mask-position: bottom;
-  -webkit-mask-size: 100% 18px;
-  mask-size: 100% 18px;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  pointer-events: none;
-}
-
-.app-container.washi-theme .hero-section {
-  background-image: url(./assets/textures/paper-texture-real.png);
 }
 
 .app-container.washi-theme .hero-section::before {
   display: none;
 }
 
-.app-container.washi-theme .hero-section::after {
-  display: none;
-}
-
 .app-container.washi-theme .skills-section {
-  background-color: var(--color-washi-cream, #f8f6f2);
-  background-image: url(./assets/textures/paper-texture-real.png);
-  background-repeat: repeat;
-  border: 1px solid var(--color-border, #d1d7e0);
-  border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 6px 12px rgba(30, 40, 60, 0.08);
-}
-
-.app-container.washi-theme .skills-section::after {
-  display: none;
 }
 
 .app-container.washi-theme .now-section,
 .app-container.washi-theme .previous-update {
   padding: 2.5rem;
-  border-radius: 14px;
-}
-
-.app-container.washi-theme .learning-item::after {
-  display: none;
 }
 
 .washi-page {
@@ -2173,7 +2117,7 @@ body {
 /* Card Styles */
 .washi-card {
   position: relative;
-  border: 1px solid var(--color-border, #d1d7e0);
+  border: none;
   border-radius: 2px;
   padding: var(--space-lg);
   padding-bottom: calc(var(--space-lg) + 12px);
@@ -2184,38 +2128,20 @@ body {
   transition: filter 0.4s ease, transform 0.3s ease;
   cursor: pointer;
 
-  /* Real paper texture from threads.anshumani.com */
-  background-color: var(--color-washi-cream, #f8f6f2);
-  background-image: url(./assets/textures/paper-texture-real.png);
-  background-repeat: repeat;
+  /* Match Home photo box transparency */
+  background: transparent;
 
-  /* Ink shadow - woodblock print style */
-  filter: drop-shadow(0 4px 6px rgba(30, 40, 60, 0.1));
+  /* Match global card shadow */
+  box-shadow: 0 6px 14px rgba(30, 40, 60, 0.12);
 }
 
 /* Torn edge mask at bottom */
 .washi-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 20px;
-  background-color: var(--color-washi-cream, #f8f6f2);
-  background-image: url(./assets/textures/paper-texture-real.png);
-  background-repeat: repeat;
-  -webkit-mask-image: url(./assets/textures/torn-paper-edge.png);
-  mask-image: url(./assets/textures/torn-paper-edge.png);
-  -webkit-mask-position: bottom;
-  mask-position: bottom;
-  -webkit-mask-size: 100% 20px;
-  mask-size: 100% 20px;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
+  display: none;
 }
 
 .washi-card:hover {
-  filter: drop-shadow(0 8px 12px rgba(30, 40, 60, 0.15));
+  box-shadow: 0 8px 18px rgba(30, 40, 60, 0.16);
   transform: translateY(-4px);
 }
 

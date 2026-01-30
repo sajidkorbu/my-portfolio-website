@@ -41,7 +41,7 @@ body {
   background-color: var(--color-washi-cream);
   background-image: url('./assets/textures/ink-wash.png');
   background-blend-mode: multiply;
-  background-position: center;
+  background-position: center 85%;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
