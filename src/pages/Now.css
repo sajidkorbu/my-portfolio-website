@@ -238,6 +238,27 @@
   font-weight: 600;
 }
 
+/* Washi theme adjustments */
+.app-container.washi-theme .now-section {
+  border-bottom: none;
+  margin-bottom: 2rem;
+}
+
+.app-container.washi-theme .previous-update {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.app-container.washi-theme .previous-update-header {
+  padding: 1.25rem 1.5rem;
+}
+
+.app-container.washi-theme .previous-update-inner {
+  padding: 1.75rem 1.5rem;
+  background: transparent;
+}
+
 .previous-update-inner .now-section h4 {
   font-size: 0.95rem;
   margin-bottom: 0.5rem;

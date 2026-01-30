@@ -125,6 +125,11 @@ const Now = () => (
         <div className="now-section">
           <h2>life happenings</h2>
           <p>
+            just redesigned this website with inspiration from threads.anshumani.com/about. shout out to <a href="https://x.com/baboonzero" target="_blank" rel="noopener noreferrer">Anshuman on X</a> for the washi paper aesthetic.
+            i tried building it first with kimi 2.5 but things didn’t work, then switched to opus 4.5 which helped me figure out how the washi paper effect was implemented.
+            that run exhausted its context window, so i continued with codex — which has been great for large‑context work like this.
+          </p>
+          <p>
             deep into AI learning - lots of reading, exploring, and hands-on experimentation.
             substack has become my go-to for staying updated on what's happening in tech and the world.
           </p>

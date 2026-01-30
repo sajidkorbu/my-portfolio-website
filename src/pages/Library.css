@@ -69,7 +69,7 @@
   content: '';
   position: absolute;
   bottom: -1px;
-  left: 0;
+  left: 8px;
   width: 0;
   height: 3px;
   background: #3498db; /* You can change this to match your site's color scheme */
@@ -86,7 +86,7 @@
 }
 
 .library-tabs button.active::after {
-  width: 100%;
+  width: calc(100% - 16px);
 }
 
 /* Smooth transition between tabs */
@@ -415,6 +415,54 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
+}
+
+/* Washi theme */
+.app-container.washi-theme .library-container {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.app-container.washi-theme .book-detail {
+  background-color: var(--color-washi-cream, #f8f6f2);
+  background-image: url('../assets/textures/paper-texture-real.png');
+  background-repeat: repeat;
+  border: 1px solid var(--color-border, #d1d7e0);
+}
+
+.app-container.washi-theme .reading-card {
+  background-color: var(--color-washi-cream, #f8f6f2);
+  background-image: url('../assets/textures/paper-texture-real.png');
+  background-repeat: repeat;
+  border: 1px solid var(--color-border, #d1d7e0);
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(30, 40, 60, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-container.washi-theme .reading-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background-color: var(--color-washi-cream, #f8f6f2);
+  background-image: url('../assets/textures/paper-texture-real.png');
+  background-repeat: repeat;
+  -webkit-mask-image: url('../assets/textures/torn-paper-edge.png');
+  mask-image: url('../assets/textures/torn-paper-edge.png');
+  -webkit-mask-position: bottom;
+  mask-position: bottom;
+  -webkit-mask-size: 100% 18px;
+  mask-size: 100% 18px;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
