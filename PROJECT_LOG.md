@@ -22,3 +22,7 @@
 - Updated Tiny Experiments cards to match the transparent Home photo box styling.
 - Added a subtle border to Tiny Experiments cards for visibility.
 - Matched Tiny Experiments cards to the global card style (transparent background, no border, same shadow).
+- Added a new Tiny Experiments card for the OpenClaw/Moltbook CricketClaw project with a link to the Moltbook post.
+- Updated the CricketClaw Tiny Experiments card link to the Moltbook profile URL.
+- Updated the Now page with a new life-happenings entry about OpenClaw experiments, local memory, and extensive Kimi K2.5 usage; bumped last updated to february 2026.
+- Split the Now page content into a dedicated "ai experiments" section, keeping "life happenings" separate.

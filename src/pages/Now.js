@@ -92,7 +92,7 @@ const Now = () => (
     <div className="content-inner">
       <div className="now-header">
         <h1>now</h1>
-        <p className="last-updated">last updated: january 2026</p>
+        <p className="last-updated">last updated: february 2026</p>
       </div>
 
       <div className="now-content">
@@ -123,7 +123,11 @@ const Now = () => (
         </div>
 
         <div className="now-section">
-          <h2>life happenings</h2>
+          <h2>ai experiments</h2>
+          <p>
+            i am really digging deep into openclaw and running a bunch of experiments with it. this feels like it has real long-term potential, especially the implementation of local memory.
+            i am also very impressed with kimi k2.5 thinking model and using it extensively in my current workflow.
+          </p>
           <p>
             just redesigned this website with inspiration from threads.anshumani.com/about. shout out to <a href="https://x.com/baboonzero" target="_blank" rel="noopener noreferrer">Anshuman on X</a> for the washi paper aesthetic.
             i tried building it first with kimi 2.5 but things didn’t work, then switched to opus 4.5 which helped me figure out how the washi paper effect was implemented.
@@ -137,6 +141,10 @@ const Now = () => (
             quite happy to see people finally realizing how good claude is and how it keeps getting
             better and better. the magic is real.
           </p>
+        </div>
+
+        <div className="now-section">
+          <h2>life happenings</h2>
           <p>
             location: copenhagen, denmark
           </p>

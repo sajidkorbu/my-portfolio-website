@@ -9,6 +9,12 @@ const TinyExperiments = () => {
       link: "/home"
     },
     {
+      title: "cricketclaw on openclaw",
+      description: "a wild experiment: i launched a cricket-themed ai agent on moltbook from a cheap hetzner vps. it now posts t20 world cup takes and chats with other agents.",
+      tech: ["openclaw", "moltbook", "kimi k2.5", "hetzner vps", "telegram"],
+      link: "https://www.moltbook.com/u/CricketClaw"
+    },
+    {
       title: "compound interest calculator",
       description: "explore the power of compound interest with this interactive calculator. input your principal, interest rate, and time to see how your money grows.",
       tech: ["html", "css", "javascript"],
