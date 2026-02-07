@@ -1,22 +1,12 @@
 // src/App.js
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import profileImage from './assets/profile-image-2.jpeg'; // Make sure this path is correct
 import Library from './pages/Library'; // Import the new Library component
 import Now from './pages/Now'; // Import the Now component
+import TinyExperiments from './pages/TinyExperiments'; // Import the washi-styled TinyExperiments
 import './App.css';
 import About from './pages/About';
-
-// Scroll to top on route change
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
 
 // Page components
 const Home = () => (
@@ -252,108 +242,23 @@ const WhyHow = () => (
   </div>
 );
 
-// Update projectsData with all your projects
-const projectsData = [
-  {
-    id: 1,
-    title: "compound interest calculator",
-    description: "explore the power of compound interest with this interactive calculator. input your principal, interest rate, and time to see how your money grows.",
-    tech: "html, css, javascript",
-    url: "/compoundinterest"
-  },
-  {
-    id: 2,
-    title: "principles webpage",
-    description: "a collection of timeless principles and insights for better living. wisdom distilled into actionable thoughts.",
-    tech: "html, css, javascript",
-    url: "/principles"
-  },
-  {
-    id: 3,
-    title: "currency exchange visualizer",
-    description: "visualize currency exchange rates and trends. built to understand how different currencies perform against each other.",
-    tech: "python, flask",
-    url: "/currency"
-  },
-  {
-    id: 4,
-    title: "learn rag",
-    description: "exploring retrieval-augmented generation through a hands-on playground. upload documents, ask questions, and see how AI combines search with generation to provide accurate answers.",
-    tech: "langchain, openai, supabase, lovable",
-    url: "https://learnrag.netlify.app/"
-  },
-  {
-    id: 5,
-    title: "the art of prompt",
-    description: "exploring the craft of prompt engineering and AI interaction. a deep dive into the techniques and strategies for effective AI communication.",
-    tech: "AI, prompt engineering, replit",
-    url: "https://theartofprompt.replit.app/"
-  },
-  {
-    id: 6,
-    title: "visualize your life",
-    description: "a simple tool to help you reflect on life during stressful times. see your life in weeks, and gain perspective.",
-    tech: "javascript, netlify",
-    url: "https://visualizelife.netlify.app"
-  },
-  {
-    id: 7,
-    title: "unagi - friends universe",
-    description: "complete timeline of FRIENDS characters' life events with interactive filters, statistics, and behind-the-scenes trivia. could this BE any more nostalgic?",
-    tech: "javascript, github pages, data visualization",
-    url: "https://sajidkorbu.github.io/Unagi/"
-  },
-  {
-    id: 8,
-    title: "90s 2d game",
-    description: "my attempt at building a simple 2d game. reminds me of the games we used to play in the 90s.",
-    tech: "javascript, netlify",
-    url: "https://90s2dgame.netlify.app/"
-  },
-  {
-    id: 9,
-    title: "linkedin & x post analyzer",
-    description: "this is not what i expected but taught me to work with API keys. a chrome extension that analyzes posts using AI-powered readability detection.",
-    tech: "javascript, chrome extension, AI",
-    url: "https://github.com/sajidkorbu/LinkedinXChromeExtenstion.git"
-  }
-];
+// TinyExperiments is now imported from ./pages/TinyExperiments.js with washi paper styling
 
-const TinyExperiments = () => (
-  <div className="content-area">
-    <div className="content-inner">
-      <h1>tiny experiments</h1>
-      <div>
-        <p>here are some of my AI experiments and projects. each represents an attempt at trying something fun, some work some don't.</p>
-        <p>but i learn.</p>
-      </div>
-      
-      <div className="experiments-grid">
-        {projectsData.map(project => (
-          <a 
-            key={project.id} 
-            href={project.url} 
-            target={project.url.startsWith('http') ? "_blank" : "_self"}
-            rel={project.url.startsWith('http') ? "noopener noreferrer" : undefined}
-            className="experiment-card"
-          >
-            <div className="experiment-content">
-              <h2>{project.title}</h2>
-              <p className="experiment-description">{project.description}</p>
-              <p className="tech">tech: {project.tech}</p>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </div>
-);
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="app-container">
+      <div className="app-container washi-theme">
         <div className="wave-decoration"></div>
         <nav className="sidebar">
   <div className="nav-links">

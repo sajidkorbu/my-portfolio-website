@@ -69,7 +69,7 @@
   content: '';
   position: absolute;
   bottom: -1px;
-  left: 0;
+  left: 8px;
   width: 0;
   height: 3px;
   background: #3498db; /* You can change this to match your site's color scheme */
@@ -86,7 +86,7 @@
 }
 
 .library-tabs button.active::after {
-  width: 100%;
+  width: calc(100% - 16px);
 }
 
 /* Smooth transition between tabs */
@@ -415,6 +415,29 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
+}
+
+/* Washi theme */
+.app-container.washi-theme .library-container {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.app-container.washi-theme .book-detail {
+  background-color: var(--color-washi-cream, #f8f6f2);
+  background-image: url('../assets/textures/paper-texture-real.png');
+  background-repeat: repeat;
+  border: 1px solid var(--color-border, #d1d7e0);
+}
+
+.app-container.washi-theme .reading-card {
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(30, 40, 60, 0.12);
 }
 
 @media (min-width: 768px) {

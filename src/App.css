@@ -134,15 +134,15 @@ body {
 }
 
 .nav-item:hover {
-  background-color: var(--hover-bg);
-  color: #000;
+  background-color: var(--color-washi-dark, #ebe7e0);
+  color: var(--color-charcoal, #2b333b);
 }
 
 .nav-item.active {
-  color: var(--text-color);
+  color: var(--color-charcoal, #2b333b);
   font-weight: 500;
-  background-color: var(--active-nav);
-  border-left: 3px solid var(--navy);
+  background-color: var(--color-washi-cream, #f8f6f2);
+  border-left: 3px solid var(--color-japan-indigo, #315381);
 }
 
 /* Main Content Area */
@@ -186,11 +186,11 @@ body {
   margin-bottom: 1rem;
   border-radius: 24px;
   overflow: hidden;
-  background-color: var(--pale-sand);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 14px rgba(30, 40, 60, 0.12);
 }
 
 .profile-image {
@@ -1999,4 +1999,307 @@ body {
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* ==========================================
+   WASHI PAPER AESTHETIC - Tiny Experiments
+   ========================================== */
+
+/* Apply washi theme to all pages */
+.app-container.washi-theme .main-content {
+  background: transparent;
+}
+
+.app-container.washi-theme .content-area {
+  background: transparent;
+  box-shadow: none;
+}
+
+.app-container.washi-theme .content-inner {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.app-container.washi-theme .content-inner::after {
+  display: none;
+}
+
+/* Glass theme - replaces washi paper on cards/blocks */
+.app-container.washi-theme .why-card,
+.app-container.washi-theme .tech-item,
+.app-container.washi-theme .hero-section,
+.app-container.washi-theme .timeline-content,
+.app-container.washi-theme .learning-card,
+.app-container.washi-theme .summary-hero,
+.app-container.washi-theme .career-content,
+.app-container.washi-theme .recognition-card,
+.app-container.washi-theme .investor-highlight,
+.app-container.washi-theme .education-card,
+.app-container.washi-theme .learning-item,
+.app-container.washi-theme .now-section,
+.app-container.washi-theme .previous-update,
+.app-container.washi-theme .skills-section {
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(30, 40, 60, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-container.washi-theme .hero-section::before {
+  display: none;
+}
+
+.app-container.washi-theme .skills-section {
+  padding: 2rem;
+}
+
+.app-container.washi-theme .now-section,
+.app-container.washi-theme .previous-update {
+  padding: 2.5rem;
+}
+
+.washi-page {
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+  position: relative;
+  /* Let the body ink-wash show through */
+  background: transparent;
+}
+
+.washi-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-xl) 0;
+}
+
+/* Header Styles */
+.washi-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+.washi-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal, #2b333b);
+  margin: 0 0 var(--space-md) 0;
+  line-height: 1.1;
+}
+
+.washi-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--color-ink-light, #5c6670);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Grid Layout */
+.washi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  padding: 0 var(--space-sm);
+}
+
+/* Card Styles */
+.washi-card {
+  position: relative;
+  border: none;
+  border-radius: 2px;
+  padding: var(--space-lg);
+  padding-bottom: calc(var(--space-lg) + 12px);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  overflow: hidden;
+  transition: filter 0.4s ease, transform 0.3s ease;
+  cursor: pointer;
+
+  /* Match Home photo box transparency */
+  background: transparent;
+
+  /* Match global card shadow */
+  box-shadow: 0 6px 14px rgba(30, 40, 60, 0.12);
+}
+
+/* Torn edge mask at bottom */
+.washi-card::after {
+  display: none;
+}
+
+.washi-card:hover {
+  box-shadow: 0 8px 18px rgba(30, 40, 60, 0.16);
+  transform: translateY(-4px);
+}
+
+/* Card Number */
+.washi-card-number {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--color-charcoal, #2b333b);
+  opacity: 0.08;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Card Content */
+.washi-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.washi-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-charcoal, #2b333b);
+  margin: 0 0 var(--space-sm) 0;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.washi-card-description {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--color-ink-light, #5c6670);
+  line-height: 1.7;
+  margin: 0 0 var(--space-md) 0;
+}
+
+/* Card Footer */
+.washi-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--washi-border);
+}
+
+.washi-tags {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.washi-tag {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: lowercase;
+  color: var(--color-ink-light, #5c6670);
+  background: var(--color-washi-dark, #ebe7e0);
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+}
+
+.washi-card-link {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-japan-indigo, #315381);
+  transition: color 0.3s ease;
+}
+
+.washi-card:hover .washi-card-link {
+  color: var(--color-vermilion, #db6257);
+}
+
+/* Torn Edge - hidden for cleaner look */
+.washi-torn-edge {
+  display: none;
+}
+
+/* Footer Quote */
+.washi-footer {
+  text-align: center;
+  margin-top: var(--space-xl);
+  padding: var(--space-xl) var(--space-md);
+}
+
+.washi-quote {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-ink-light, #5c6670);
+  margin: 0;
+  position: relative;
+}
+
+.washi-quote::before,
+.washi-quote::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-border, #d1d7e0);
+  vertical-align: middle;
+  margin: 0 var(--space-sm);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .washi-page {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .washi-content {
+    padding: var(--space-lg) 0;
+  }
+
+  .washi-title {
+    font-size: 2.2rem;
+  }
+
+  .washi-subtitle {
+    font-size: 1rem;
+  }
+
+  .washi-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .washi-card {
+    padding: var(--space-md);
+  }
+
+  .washi-card-number {
+    font-size: 2rem;
+  }
+
+  .washi-quote::before,
+  .washi-quote::after {
+    width: 20px;
+  }
+}
+
+/* Sidebar override for washi page */
+.washi-page ~ .sidebar,
+.app-container:has(.washi-page) .sidebar {
+  background: transparent;
+}
+
+/* Override main content styles when on washi page */
+.app-container:has(.washi-page) .main-content {
+  background: transparent;
 }
